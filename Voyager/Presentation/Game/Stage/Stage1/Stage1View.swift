@@ -12,7 +12,7 @@ struct Stage1View: View {
     @EnvironmentObject var stageViewModel: Stage1ViewModel
     @EnvironmentObject var appRouter: NavRouter<AppRouteState>
     @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
-    //
+    
     var body: some View {
         ZStack {
             Image(stageViewModel.background)
@@ -35,6 +35,22 @@ struct Stage1View: View {
                             .padding()
                     })
                     Spacer()
+                    HStack {
+                        Image("coin_balance")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                        Text("\(stageViewModel.appController._balance)")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 18).monospaced().bold())
+                            .padding(.trailing)
+//                            .onChange(of: Balance.balance, perform: {
+//                                _ in
+//                                print("balance changed")
+//                            })
+//                            .onChange(of: StorageManager.shared.gameCash, perform: { value in
+//                                print("StorageManager balance changed")
+//                            })
+                    }
                 }
                 Spacer()
             }
@@ -56,6 +72,8 @@ struct Stage1View: View {
             }
         }
         .environmentObject(stageViewModel)
+//        .environmentObject(balanceManager)
+//        .environmentObject(appController)
         
     }
 }

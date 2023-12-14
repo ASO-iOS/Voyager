@@ -63,18 +63,7 @@ struct LoteryView: View {
             }
         }
         .frame(maxWidth: .infinity)
-            .background {
-                        ZStack {
-                            VStack(spacing: 0) {
-                                Spacer()
-                                Rectangle()
-                                    .frame(height: 5)
-                                Rectangle()
-                                    .foregroundStyle(Color(red: 0.13, green: 0.14, blue: 0.19))
-                                    .frame(height: UIScreen.main.bounds.height * 0.4)
-                            }
-                        }.ignoresSafeArea()
-                    }
+      
             
         
         .frame(maxWidth: .infinity)
@@ -115,7 +104,17 @@ struct LoteryView: View {
                     .gameButtonStyle(.nextButton)
             })
         }
+//        .task {
+//            await balanceManager.changeBalance(amount: 500)
+//        }
+//        .onAppear {
+//            
+////            balanceManager.changeBalance(amount: 500)
+////            print(500)
+//        }
         .frame(maxWidth: .infinity)
         .miniGameBackground()
     }
 }
+
+//struct Lottery

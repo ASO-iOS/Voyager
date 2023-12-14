@@ -15,6 +15,12 @@ struct MainView: View {
     var body: some View {
         VStack {
             Button(action: {
+                StorageManager.shared.setStage1State(.freePlay)
+                appRouter.push(route: .game)
+            }, label: {
+                Text("Button")
+            })
+            Button(action: {
                 appRouter.push(route: .game)
                 
             }, label: {
@@ -32,6 +38,7 @@ struct MainView: View {
                 StorageManager.shared.setStage4State(.preview)
                 StorageManager.shared.setStage5State(.preview)
                 StorageManager.shared.setCurrentStage(.stage1)
+                StorageManager.shared.setCash(10000000)
             }, label: {
                 Text("reset")
             })

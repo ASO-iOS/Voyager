@@ -91,14 +91,8 @@ final class StorageManager {
     
     @AppStorage(SMKeys.GAME_CASH) private(set) var gameCash = 50
     
-    func increaseCash(_ value: Int) {
-        gameCash += value
-    }
-    
-    func reduceCash(_ value: Int) {
-        if gameCash > 0 {
-            gameCash -= value
-        }
+    func setCash(_ value: Int) {
+        gameCash = value
     }
 }
 

@@ -34,6 +34,15 @@ struct Stage2View: View {
                             .padding()
                     })
                     Spacer()
+                    HStack {
+                        Image("coin_balance")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+//                        Text("\(appController._balance)")
+//                            .foregroundStyle(.white)
+//                            .font(.system(size: 18).monospaced().bold())
+//                            .padding(.trailing)
+                    }
                 }
                 Spacer()
             }
@@ -54,6 +63,7 @@ struct Stage2View: View {
             }
         }
         .environmentObject(stageViewModel)
+//        .environmentObject(appController)
     }
 }
 

@@ -4,6 +4,7 @@ struct Stage2Game2View: View {
     
     @EnvironmentObject var stage2ViewModel: Stage2ViewModel
     @StateObject var stage2Game2ViewModel = Stage2Game2ViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     
     var body: some View {
         ZStack {

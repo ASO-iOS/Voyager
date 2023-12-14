@@ -71,10 +71,10 @@ struct CupView: View {
     }
 }
 
-#Preview {
-    HStack {
-        CupView(id: 0, reveal: .constant(false), winChance: 1)
-        CupView(id: 0, reveal: .constant(false), winChance: 1)
-        CupView(id: 0, reveal: .constant(false), winChance: 1)
-    }
-}
+//#Preview {
+//    HStack {
+//        CupView(id: 0, reveal: .constant(false), winChance: 1)
+//        CupView(id: 0, reveal: .constant(false), winChance: 1)
+//        CupView(id: 0, reveal: .constant(false), winChance: 1)
+//    }
+//}

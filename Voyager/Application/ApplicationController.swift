@@ -8,16 +8,20 @@
 import SwiftUI
 
 final class ApplicationController: ObservableObject {
-//    
-//    @Published private(set) var currentRoute: String = PilotStringRoutes.gameWheelComplicated.value
-//    @Published private(set) var currentStage: AppControllerStageState
-//    
-//    
-//    init() {
-//        self.currentStage = .getStage()
-//    }
-//    
-
-
+    
+    @Published private(set) var _balance = StorageManager.shared.gameCash
+    
+    func increaseBalance(_ value: Int) {
+        _balance += value
+        StorageManager.shared.setCash(_balance)
+    }
+    
+    func reduceBalance(_ value: Int) {
+        var temp = _balance
+        if temp - value >= 0 {
+            _balance -= value
+            StorageManager.shared.setCash(_balance)
+        }
+    }
 }
 

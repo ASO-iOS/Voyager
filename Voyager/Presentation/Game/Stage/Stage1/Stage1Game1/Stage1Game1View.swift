@@ -10,6 +10,7 @@ import SwiftUI
 struct Stage1Game1View: View {
     @EnvironmentObject var stage1ViewModel: Stage1ViewModel
     @StateObject var stage1Game1ViewModel = Stage1Game1ViewModel()
+    
     var body: some View {
         ZStack {
             switch stage1Game1ViewModel.state {
@@ -52,11 +53,10 @@ struct Stage1Game1View: View {
             case .game:
                 ShellGameView(completion: {
                     stage1ViewModel.setState(.game2)
+                }, finishCompletion: { bet in
+                    stage1ViewModel.appController.increaseBalance(bet)
                 })
-                    .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.3))
-//                ShellGameView(count: 3, completion: {
-//                    stage1ViewModel.setState(.game2)
-//                })
+                .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.3))
             }
             
         }

@@ -11,6 +11,7 @@ struct Stage3View: View {
     @EnvironmentObject var stageViewModel: Stage3ViewModel
     @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
     @EnvironmentObject var appRouter: NavRouter<AppRouteState>
+//    @EnvironmentObject var appController: ApplicationController
     
     var body: some View {
         ZStack {
@@ -34,6 +35,15 @@ struct Stage3View: View {
                             .padding()
                     })
                     Spacer()
+                    HStack {
+                        Image("coin_balance")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+//                        Text("\(appController._balance)")
+//                            .foregroundStyle(.white)
+//                            .font(.system(size: 18).monospaced().bold())
+//                            .padding(.trailing)
+                    }
                 }
                 Spacer()
             }

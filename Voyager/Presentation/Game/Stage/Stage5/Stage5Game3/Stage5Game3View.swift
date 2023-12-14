@@ -3,8 +3,8 @@ import SwiftUI
 struct Stage5Game3View: View {
     
     @EnvironmentObject var stage5ViewModel: Stage5ViewModel
-    @EnvironmentObject var appRouter: NavRouter<AppRouteState>
     @StateObject var stage5Game3ViewModel = Stage5Game3ViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     
     var body: some View {
         ZStack {

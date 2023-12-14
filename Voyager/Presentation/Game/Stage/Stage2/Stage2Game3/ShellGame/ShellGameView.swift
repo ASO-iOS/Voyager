@@ -15,8 +15,8 @@ struct ShellGameView: View {
     //MARK: - cupsCount = 1, winChance = 0 при плохой карме
     @State var reveal: Bool = false
     @State var shuffleInProgress = false
-    @State var bet = 0
     var completion: () -> Void
+    var finishCompletion: (Int) -> Void = {_ in }
     
     func play() {
         shuffleInProgress = true
@@ -55,12 +55,22 @@ struct ShellGameView: View {
                 }
                 if viewModel.isFinish {
                     if viewModel.isWin {
-                        Text("+\(bet)")
+                        Text("+\(viewModel.bet)")
+                        
                     } else {
-                        Text("-\(bet)")
+                        Text("-\(viewModel.bet)")
                     }
                 }
             }
+            .onChange(of: viewModel.isFinish, perform: { value in
+                if value {
+                    finishCompletion(viewModel.bet)
+//                    DispatchQueue.main.async {
+//                        balanceManager.changeBalance(amount: viewModel.bet)
+//                    }
+                    
+                }
+            })
             .gameButtonStyle(.textBack)
             .zIndex(20)
             VStack {
@@ -85,7 +95,7 @@ struct ShellGameView: View {
                             ForEach([100, 250, 500], id: \.self) { amount in
                                 Button(action: {
                                     
-                                    bet = amount
+                                    viewModel.bet = amount
                                     play()
                                 }, label: {
                                     Text(amount.description)
@@ -132,25 +142,5 @@ struct ShellGameView: View {
         }
         .frame(maxWidth: .infinity)
         .miniGameBackground()
-//        .background {
-//            ZStack {
-//                VStack(spacing: 0) {
-//                    Spacer()
-//                    Rectangle()
-//                        .fill(.black)
-//                        .frame(height: 5)
-//                    Rectangle()
-//                        .foregroundStyle(Color(red: 0.13, green: 0.14, blue: 0.19))
-//                        .frame(height: UIScreen.main.bounds.height * 0.5)
-//                }
-//            }.ignoresSafeArea()
-//        }
     }
 }
-
-//#Preview {
-//    ShellGameView(completion: {
-//        //        stage1ViewModel.setState(.game2)
-//    })
-//    .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.3))
-//}

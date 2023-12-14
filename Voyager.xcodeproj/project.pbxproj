@@ -63,6 +63,14 @@
 		844827812B2A1576004EF5F7 /* Stage3FreePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827802B2A1576004EF5F7 /* Stage3FreePlayView.swift */; };
 		844827832B2A1816004EF5F7 /* Stage1FreeplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827822B2A1816004EF5F7 /* Stage1FreeplayViewModel.swift */; };
 		844827852B2A1827004EF5F7 /* Stage1FreeplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827842B2A1827004EF5F7 /* Stage1FreeplayView.swift */; };
+		8448278B2B2B0158004EF5F7 /* InvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827872B2B0158004EF5F7 /* InvestmentViewModel.swift */; };
+		8448278C2B2B0158004EF5F7 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827882B2B0158004EF5F7 /* LineChartView.swift */; };
+		8448278D2B2B0158004EF5F7 /* RunningLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827892B2B0158004EF5F7 /* RunningLineView.swift */; };
+		8448278E2B2B0158004EF5F7 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448278A2B2B0158004EF5F7 /* InvestmentView.swift */; };
+		844827912B2B0319004EF5F7 /* Stage4FreePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827902B2B0319004EF5F7 /* Stage4FreePlayView.swift */; };
+		844827952B2B0342004EF5F7 /* Stage4FreePlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827942B2B0342004EF5F7 /* Stage4FreePlayViewModel.swift */; };
+		844827992B2B03EC004EF5F7 /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827972B2B03EC004EF5F7 /* CryptoViewModel.swift */; };
+		8448279A2B2B03EC004EF5F7 /* CryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827982B2B03EC004EF5F7 /* CryptoView.swift */; };
 		844D15712B1A2AFD00896576 /* Stage2PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D15702B1A2AFD00896576 /* Stage2PreviewView.swift */; };
 		844D15732B1A2B0700896576 /* Stage2PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D15722B1A2B0700896576 /* Stage2PreviewViewModel.swift */; };
 		844D15752B1A2B1200896576 /* Stage2Game1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D15742B1A2B1200896576 /* Stage2Game1View.swift */; };
@@ -213,6 +221,14 @@
 		844827802B2A1576004EF5F7 /* Stage3FreePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage3FreePlayView.swift; sourceTree = "<group>"; };
 		844827822B2A1816004EF5F7 /* Stage1FreeplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1FreeplayViewModel.swift; sourceTree = "<group>"; };
 		844827842B2A1827004EF5F7 /* Stage1FreeplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1FreeplayView.swift; sourceTree = "<group>"; };
+		844827872B2B0158004EF5F7 /* InvestmentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentViewModel.swift; sourceTree = "<group>"; };
+		844827882B2B0158004EF5F7 /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		844827892B2B0158004EF5F7 /* RunningLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningLineView.swift; sourceTree = "<group>"; };
+		8448278A2B2B0158004EF5F7 /* InvestmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
+		844827902B2B0319004EF5F7 /* Stage4FreePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage4FreePlayView.swift; sourceTree = "<group>"; };
+		844827942B2B0342004EF5F7 /* Stage4FreePlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage4FreePlayViewModel.swift; sourceTree = "<group>"; };
+		844827972B2B03EC004EF5F7 /* CryptoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
+		844827982B2B03EC004EF5F7 /* CryptoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
 		844D15702B1A2AFD00896576 /* Stage2PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2PreviewView.swift; sourceTree = "<group>"; };
 		844D15722B1A2B0700896576 /* Stage2PreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2PreviewViewModel.swift; sourceTree = "<group>"; };
 		844D15742B1A2B1200896576 /* Stage2Game1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2Game1View.swift; sourceTree = "<group>"; };
@@ -412,6 +428,7 @@
 		840BDB232B1E07A4004E1D7C /* Stage5Game2 */ = {
 			isa = PBXGroup;
 			children = (
+				844827962B2B03EC004EF5F7 /* Crypto */,
 				840BDB2F2B1E08D9004E1D7C /* Stage5Game2View.swift */,
 				840BDB312B1E08E6004E1D7C /* Stage5Game2ViewModel.swift */,
 			);
@@ -555,6 +572,35 @@
 				844827762B29EE18004EF5F7 /* CardCombinator.swift */,
 			);
 			path = TwentyOne;
+			sourceTree = "<group>";
+		};
+		844827862B2B0158004EF5F7 /* Investment */ = {
+			isa = PBXGroup;
+			children = (
+				844827872B2B0158004EF5F7 /* InvestmentViewModel.swift */,
+				844827882B2B0158004EF5F7 /* LineChartView.swift */,
+				844827892B2B0158004EF5F7 /* RunningLineView.swift */,
+				8448278A2B2B0158004EF5F7 /* InvestmentView.swift */,
+			);
+			path = Investment;
+			sourceTree = "<group>";
+		};
+		8448278F2B2B02F1004EF5F7 /* Stage4Freeplay */ = {
+			isa = PBXGroup;
+			children = (
+				844827902B2B0319004EF5F7 /* Stage4FreePlayView.swift */,
+				844827942B2B0342004EF5F7 /* Stage4FreePlayViewModel.swift */,
+			);
+			path = Stage4Freeplay;
+			sourceTree = "<group>";
+		};
+		844827962B2B03EC004EF5F7 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				844827972B2B03EC004EF5F7 /* CryptoViewModel.swift */,
+				844827982B2B03EC004EF5F7 /* CryptoView.swift */,
+			);
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 		844D156A2B1A2A9F00896576 /* Stage2Preview */ = {
@@ -857,6 +903,7 @@
 		84AC0D992B1F2EFF004FA735 /* Stage4 */ = {
 			isa = PBXGroup;
 			children = (
+				8448278F2B2B02F1004EF5F7 /* Stage4Freeplay */,
 				84AC0D9A2B1F2EFF004FA735 /* Stage4Game1 */,
 				84AC0D9D2B1F2EFF004FA735 /* Stage4Game2 */,
 				84AC0DA72B1F2EFF004FA735 /* Stage4Game3 */,
@@ -880,6 +927,7 @@
 		84AC0D9D2B1F2EFF004FA735 /* Stage4Game2 */ = {
 			isa = PBXGroup;
 			children = (
+				844827862B2B0158004EF5F7 /* Investment */,
 				84AC0D9E2B1F2EFF004FA735 /* Stage4Game2View.swift */,
 				84AC0D9F2B1F2EFF004FA735 /* Stage4Game2ViewModel.swift */,
 			);
@@ -1182,7 +1230,9 @@
 				840BDB3C2B1E0924004E1D7C /* Stage5FreeplayView.swift in Sources */,
 				84AC0DB02B1F2EFF004FA735 /* Stage4Game4View.swift in Sources */,
 				8413DFC62B0FACB5009AE42F /* SMKeys.swift in Sources */,
+				844827952B2B0342004EF5F7 /* Stage4FreePlayViewModel.swift in Sources */,
 				84741E7E2B14EBF1000B8C59 /* Stage5ViewModel.swift in Sources */,
+				8448278B2B2B0158004EF5F7 /* InvestmentViewModel.swift in Sources */,
 				84AC0D932B1F2ED6004FA735 /* Stage3Game1ViewModel.swift in Sources */,
 				840DE74E2B2732A500C44540 /* DiceViewModel.swift in Sources */,
 				844D15832B1A2B5F00896576 /* Stage2Gam4ViewModel.swift in Sources */,
@@ -1196,6 +1246,7 @@
 				84AC0DB12B1F2EFF004FA735 /* Stage4Game4ViewModel.swift in Sources */,
 				84AC0DB32B1F2EFF004FA735 /* Stage4PreviewViewModel.swift in Sources */,
 				84AC0D952B1F2ED6004FA735 /* Stage3Game3View.swift in Sources */,
+				8448278E2B2B0158004EF5F7 /* InvestmentView.swift in Sources */,
 				84BF52052B0B772F00CC2D9F /* InfoViewModel.swift in Sources */,
 				840BDB3A2B1E0914004E1D7C /* Stage5Game4ViewModel.swift in Sources */,
 				844D15732B1A2B0700896576 /* Stage2PreviewViewModel.swift in Sources */,
@@ -1226,6 +1277,7 @@
 				840DE7552B2732FD00C44540 /* CupView.swift in Sources */,
 				84BF51E82B0B6CDE00CC2D9F /* ContantView.swift in Sources */,
 				8448276E2B29E961004EF5F7 /* WheelComplicatedResultStateView.swift in Sources */,
+				8448279A2B2B03EC004EF5F7 /* CryptoView.swift in Sources */,
 				840BDB302B1E08D9004E1D7C /* Stage5Game2View.swift in Sources */,
 				8448277B2B29EE18004EF5F7 /* CardSuit.swift in Sources */,
 				840DE74C2B2732A500C44540 /* GameResult.swift in Sources */,
@@ -1262,6 +1314,7 @@
 				840684312B1A0F5A00E0C8E6 /* Stage1Game2ViewModel.swift in Sources */,
 				84A63D342B28CF6100FCDB6F /* WheelByBothStateView.swift in Sources */,
 				8413DFCC2B0FAE60009AE42F /* Stage1ViewModel.swift in Sources */,
+				844827912B2B0319004EF5F7 /* Stage4FreePlayView.swift in Sources */,
 				840684112B17945600E0C8E6 /* FinalReference.swift in Sources */,
 				84741EEC2B16514B000B8C59 /* Stage5References.swift in Sources */,
 				84AC0DB52B1F2EFF004FA735 /* Stage4Game3ViewModel.swift in Sources */,
@@ -1275,6 +1328,7 @@
 				84BF51F22B0B718800CC2D9F /* SettingsViewModel.swift in Sources */,
 				84741E7C2B14EBE8000B8C59 /* Stage5View.swift in Sources */,
 				844D157D2B1A2B4300896576 /* Stage2Game3View.swift in Sources */,
+				8448278D2B2B0158004EF5F7 /* RunningLineView.swift in Sources */,
 				844D15712B1A2AFD00896576 /* Stage2PreviewView.swift in Sources */,
 				84AC0D922B1F2ED6004FA735 /* Stage3Game2ViewModel.swift in Sources */,
 				840DE74D2B2732A500C44540 /* DiceView.swift in Sources */,
@@ -1288,6 +1342,7 @@
 				84AC0D912B1F2ED6004FA735 /* Stage3Game2View.swift in Sources */,
 				84BF51F62B0B719D00CC2D9F /* MainViewModel.swift in Sources */,
 				848AFBF42B1F5FE50071D4AE /* Stage1Game4View.swift in Sources */,
+				8448278C2B2B0158004EF5F7 /* LineChartView.swift in Sources */,
 				84AC0D982B1F2ED6004FA735 /* Stage3PreviewView.swift in Sources */,
 				84741E672B14D4CD000B8C59 /* AppRouter.swift in Sources */,
 				84BF51FE2B0B760A00CC2D9F /* OnboardingView.swift in Sources */,
@@ -1299,6 +1354,7 @@
 				84AC0D972B1F2ED6004FA735 /* Stage3PreviewViewModel.swift in Sources */,
 				844D15772B1A2B1A00896576 /* Stage2Game1ViewModel.swift in Sources */,
 				844827772B29EE18004EF5F7 /* CardView.swift in Sources */,
+				844827992B2B03EC004EF5F7 /* CryptoViewModel.swift in Sources */,
 				844D157B2B1A2B3900896576 /* Stage2Game2ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import SwiftUI
 struct Stage4Game4View: View {
     @EnvironmentObject var stage4ViewModel: Stage4ViewModel
     @StateObject var stage4Game4ViewModel = Stage4Game4ViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     var body: some View {
         ZStack {
             switch stage4Game4ViewModel.state {
@@ -70,7 +71,6 @@ struct Stage4Game4View: View {
             
             Button(action: {
                 nextState()
-                //                stage1ViewModel.setState(.game1)
             }, label: {
                 Text("Дальше")
                     .gameButtonStyle(.nextButton)

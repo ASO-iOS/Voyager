@@ -4,7 +4,7 @@ struct Stage1Game4View: View {
     
     @EnvironmentObject var stage1ViewModel: Stage1ViewModel
     @StateObject var stage1Game4ViewModel = Stage1Game4ViewModel()
-    @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
+//    @EnvironmentObject var appController: ApplicationController
     
     var body: some View {
         ZStack {

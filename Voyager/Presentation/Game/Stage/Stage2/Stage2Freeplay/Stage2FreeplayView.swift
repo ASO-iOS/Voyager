@@ -13,6 +13,7 @@ struct Stage2FreeplayView: View {
     @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
     @EnvironmentObject var stage2ViewModel: Stage2ViewModel
     @StateObject var stage2FreeplayViewModel = Stage2FreePlayViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     
     var body: some View {
         ZStack {
@@ -66,9 +67,9 @@ struct Stage2FreeplayView: View {
                 }
                 .environmentObject(DiceViewViewModel())
             case .game3:
-                ShellGameView() {
+                ShellGameView(completion: {
                     stage2FreeplayViewModel.state = .main
-                }
+                })
                 .environmentObject(ShellGameViewModel(cupsCount: 5, winChance: 0.2))
             case .game4:
                 OriginalSportBettingView() {

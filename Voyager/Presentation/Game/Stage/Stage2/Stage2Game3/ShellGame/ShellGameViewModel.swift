@@ -14,6 +14,7 @@ final class ShellGameViewModel: ObservableObject {
     @Published var isFinish: Bool
     @Published var isWin: Bool
     @Published var readyToReveal: Bool
+    @Published var bet = 0
     
     var cupsCount: Int
     @Published var winChance: Float
@@ -39,12 +40,19 @@ final class ShellGameViewModel: ObservableObject {
             self.cupViews.append(
                 CupView(id: i,
                         reveal: i == 0 ? reveal : .constant(false),
-                        winChance: winChance) { isWin in
+                        winChance: winChance) { [self] isWin in
                             self.isWin = isWin
                             self.readyToReveal = false
 //                            Task {
 //                                try? await Task.sleep(nanoseconds: 2_000_000_000)
                                 self.isFinish = true
+                            
+//                            if isWin {
+//                                balanceManager.changeBalance(amount: bet)
+//                                
+//                            } else {
+//                                balanceManager.changeBalance(amount: -bet)
+//                            }
 //                            }
                         }
             )

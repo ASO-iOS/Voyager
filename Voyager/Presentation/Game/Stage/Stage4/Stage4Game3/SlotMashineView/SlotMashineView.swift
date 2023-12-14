@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SlotMashineView: View {
     
-    @EnvironmentObject var stage4ViewModel: Stage4ViewModel
+//    @EnvironmentObject var stage4ViewModel: Stage4ViewModel
     @EnvironmentObject var slotMashineViewModel: SlotMashineViewModel
+    var completion: () -> Void = {}
 
     
     var body: some View {
@@ -189,7 +190,8 @@ struct SlotMashineView: View {
             
             
             Button(action: {
-                stage4ViewModel.setState(.game4)
+                completion()
+//                stage4ViewModel.setState(.game4)
             }, label: {
                 Text("Дальше")
                     .foregroundColor(.white)
@@ -218,6 +220,6 @@ struct SlotMashineView: View {
     }
 }
 
-#Preview {
-    SlotMashineView().environmentObject(SlotMashineViewModel())
-}
+//#Preview {
+//    SlotMashineView().environmentObject(SlotMashineViewModel())
+//}

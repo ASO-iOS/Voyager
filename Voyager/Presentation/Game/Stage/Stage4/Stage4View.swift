@@ -12,6 +12,7 @@ struct Stage4View: View {
     @EnvironmentObject var stageViewModel: Stage4ViewModel
     @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
     @EnvironmentObject var appRouter: NavRouter<AppRouteState>
+//    @EnvironmentObject var appController: ApplicationController
     var body: some View {
         ZStack {
             Image(stageViewModel.background)
@@ -34,6 +35,15 @@ struct Stage4View: View {
                             .padding()
                     })
                     Spacer()
+                    HStack {
+                        Image("coin_balance")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+//                        Text("\(appController._balance)")
+//                            .foregroundStyle(.white)
+//                            .font(.system(size: 18).monospaced().bold())
+//                            .padding(.trailing)
+                    }
                 }
                 Spacer()
             }
@@ -56,20 +66,20 @@ struct Stage4View: View {
         .environmentObject(stageViewModel)
     }
 }
-
-struct Stage4FreePlayView: View {
-    @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
-    @EnvironmentObject var stage4ViewModel: Stage4ViewModel
-    var body: some View {
-        VStack {
-            Text("free play")
-            Button(action: {
-                currentStageState.push(route: .stage5)
-                StorageManager.shared.setCurrentStage(.stage5)
-            }, label: {
-                Text("stage 5")
-            })
-        }
-    }
-}
+//
+//struct Stage4FreePlayView: View {
+//    @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
+//    @EnvironmentObject var stage4ViewModel: Stage4ViewModel
+//    var body: some View {
+//        VStack {
+//            Text("free play")
+//            Button(action: {
+//                currentStageState.push(route: .stage5)
+//                StorageManager.shared.setCurrentStage(.stage5)
+//            }, label: {
+//                Text("stage 5")
+//            })
+//        }
+//    }
+//}
 

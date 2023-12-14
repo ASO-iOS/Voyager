@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Stage4Game3View: View {
     @EnvironmentObject var stage4ViewModel: Stage4ViewModel
-    @EnvironmentObject var appRouter: NavRouter<AppRouteState>
     @StateObject var stage4Game3ViewModel = Stage4Game3ViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     var body: some View {
         ZStack {
             switch stage4Game3ViewModel.state {
@@ -47,7 +47,10 @@ struct Stage4Game3View: View {
                     stage4Game3ViewModel.nextText(.game)
                 }
             case .game:
-                SlotMashineView().environmentObject(SlotMashineViewModel())
+                SlotMashineView() {
+                    stage4ViewModel.setState(.game4)
+                }
+                    .environmentObject(SlotMashineViewModel())
             }
             
         }

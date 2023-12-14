@@ -10,6 +10,7 @@ import SwiftUI
 struct Stage4Game2View: View {
     @EnvironmentObject var stage4ViewModel: Stage4ViewModel
     @StateObject var stage4Game2ViewModel = Stage4Game2ViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     var body: some View {
         ZStack {
             switch stage4Game2ViewModel.state {
@@ -72,8 +73,8 @@ struct Stage4Game2View: View {
                     stage4ViewModel.setState(.game3)
                 }
             case .game:
-                stageView {
-                    stage4ViewModel.setState(.preview)
+                InvestmentView() {
+                    stage4ViewModel.setState(.game3)
                 }
             }
             

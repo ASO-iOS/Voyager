@@ -58,9 +58,9 @@ struct Stage1FreeplayView: View {
                 .padding(.bottom)
                 
             case .game1:
-                ShellGameView {
+                ShellGameView(completion: {
                     stage1FreeplayViewModel.state = .main
-                }
+                })
                 .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.3))
             case .game2:
                 LoteryView() {

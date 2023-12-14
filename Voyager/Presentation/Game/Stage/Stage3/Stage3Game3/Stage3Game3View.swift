@@ -12,6 +12,7 @@ import SwiftUI
 struct Stage3Game3View: View {
     @EnvironmentObject var stage3ViewModel: Stage3ViewModel
     @StateObject var stage3Game3ViewModel = Stage3Game3ViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     var body: some View {
         ZStack {
             switch stage3Game3ViewModel.state {

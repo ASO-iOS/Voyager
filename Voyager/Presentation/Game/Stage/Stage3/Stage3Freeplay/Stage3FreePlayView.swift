@@ -13,6 +13,7 @@ struct Stage3FreePlayView: View {
     @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
     @EnvironmentObject var stage3ViewModel: Stage3ViewModel
     @StateObject var stage3FreeplayViewModel = Stage3FreePlayViewModel()
+//    @EnvironmentObject var appController: ApplicationController
     
     var body: some View {
         ZStack {
