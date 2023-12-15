@@ -32,20 +32,9 @@ struct MexicoHippodromView: View {
             }
             
         }
+        .padding(.bottom)
         .frame(maxWidth: .infinity)
-            .background {
-                        ZStack {
-                            VStack(spacing: 0) {
-                                Spacer()
-                                Rectangle()
-                                    .frame(height: 5)
-                                Rectangle()
-                                    .foregroundStyle(Color(red: 0.13, green: 0.14, blue: 0.19))
-                                    .frame(height: UIScreen.main.bounds.height * 0.5)
-                            }
-                        }.ignoresSafeArea()
-                    }
-            .padding(.bottom, 2)
+        .miniGameBackground()
         
     }
     
@@ -73,23 +62,10 @@ struct MexicoHippodromView: View {
                 chooseSizeOfBetButtonView(index)
             }
             
-        } .padding(.bottom, 2)
+        } 
+        .padding(.bottom)
         .frame(maxWidth: .infinity)
         .miniGameBackground()
-//                .background {
-//                            ZStack {
-//                                VStack(spacing: 0) {
-//                                    Spacer()
-//                                    Rectangle()
-//                                        .frame(height: 5)
-//                                    Rectangle()
-//                                        .foregroundStyle(Color(red: 0.13, green: 0.14, blue: 0.19))
-//                                        .frame(height: UIScreen.main.bounds.height * 0.5)
-//                                }
-//                            }.ignoresSafeArea()
-//                        }
-                
-        
         
     }
     
@@ -160,7 +136,11 @@ struct MexicoHippodromView: View {
                     .gameButtonStyle(.nextButton)
             } .padding(.bottom, 52)
             
-        } .frame(maxWidth: .infinity)
+        }
+        .onAppear {
+            BalanceManager.shared.changeBalance(by: isWin ? mexicoHippodtromViewModel.selectedBetSize * Int(mexicoHippodtromViewModel.selectedRate) : mexicoHippodtromViewModel.selectedBetSize, gameResult: isWin ? .win : .lose)
+        }
+        .frame(maxWidth: .infinity)
             .miniGameBackground()
         
     }

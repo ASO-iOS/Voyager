@@ -26,7 +26,7 @@ struct Stage1Game2View: View {
                     stage1Game2ViewModel.nextText(.game)
                 }
             case .game:
-                LoteryView() {
+                LoteryView(price: 100) {
                     stage1ViewModel.setState(.game3)
                 }
                 .environmentObject(LoteryViewModel())

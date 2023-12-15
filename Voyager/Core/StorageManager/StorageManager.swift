@@ -89,10 +89,43 @@ final class StorageManager {
     
     //MARK: - cash
     
-    @AppStorage(SMKeys.GAME_CASH) private(set) var gameCash = 50
-    
-    func setCash(_ value: Int) {
-        gameCash = value
-    }
+//    @AppStorage(SMKeys.GAME_CASH) private(set) var gameCash = 50
+//    
+//    func setCash(_ value: Int) {
+//        gameCash = value
+//    }
 }
 
+enum GameResultImpl {
+    case win, lose
+}
+
+class BalanceManager: ObservableObject {
+    @AppStorage(SMKeys.GAME_CASH) private(set) var gameCash = 50
+    @Published var balance = 0
+    
+    static let shared = BalanceManager()
+    
+    private init() {
+        balance = gameCash
+    }
+    
+    func changeBalance(by value: Int, gameResult: GameResultImpl) {
+        let temp = balance
+        switch gameResult {
+        case .win:
+            balance += value
+            gameCash = balance
+        case .lose:
+            if temp - value >= 0 {
+                balance -= value
+                gameCash = balance
+            }
+        }
+    }
+    
+    func reset() {
+        gameCash = 1000000
+        balance = gameCash
+    }
+}

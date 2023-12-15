@@ -9,12 +9,6 @@ import SwiftUI
 
 final class Stage1ViewModel: ObservableObject {
     
-    let appController: ApplicationController
-    
-    init(appController: ApplicationController) {
-        self.appController = appController
-    }
-    
     @Published var stageState = StorageManager.shared.stage1State
     @Published var background = ""
     @Published var character = ""

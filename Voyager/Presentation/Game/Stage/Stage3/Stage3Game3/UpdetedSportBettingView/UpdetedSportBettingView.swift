@@ -50,6 +50,7 @@ struct UpdetedSportBettingView: View {
                 } .padding(.bottom, 32)
                 
             }
+            .padding(.bottom, 32)
         }
         .frame(maxWidth: .infinity)
         .miniGameBackground()
@@ -71,6 +72,7 @@ struct UpdetedSportBettingView: View {
                 } .padding(.bottom, 32)
                 
             }
+            .padding(.bottom, 32)
         }
         .frame(maxWidth: .infinity)
         .miniGameBackground()
@@ -155,6 +157,10 @@ struct UpdetedSportBettingView: View {
                 completion()
             } .padding(.bottom, 32)
             
+        }
+        .padding(.bottom, 32)
+        .onAppear {
+            BalanceManager.shared.changeBalance(by: isWin ? updetedSportBettingViewModel.playerBetSize * Int(updetedSportBettingViewModel.playerRate) : updetedSportBettingViewModel.playerBetSize, gameResult: isWin ? .win : .lose)
         }
         .frame(maxWidth: .infinity)
         .miniGameBackground()

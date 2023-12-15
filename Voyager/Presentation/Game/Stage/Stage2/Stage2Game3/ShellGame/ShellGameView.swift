@@ -16,7 +16,6 @@ struct ShellGameView: View {
     @State var reveal: Bool = false
     @State var shuffleInProgress = false
     var completion: () -> Void
-    var finishCompletion: (Int) -> Void = {_ in }
     
     func play() {
         shuffleInProgress = true
@@ -62,15 +61,6 @@ struct ShellGameView: View {
                     }
                 }
             }
-            .onChange(of: viewModel.isFinish, perform: { value in
-                if value {
-                    finishCompletion(viewModel.bet)
-//                    DispatchQueue.main.async {
-//                        balanceManager.changeBalance(amount: viewModel.bet)
-//                    }
-                    
-                }
-            })
             .gameButtonStyle(.textBack)
             .zIndex(20)
             VStack {

@@ -10,12 +10,6 @@ import Foundation
 
 final class Stage2ViewModel: ObservableObject {
     
-    let appController: ApplicationController
-    
-    init(appController: ApplicationController) {
-        self.appController = appController
-    }
-    
     @Published var stageState = StorageManager.shared.stage2State
     @Published var background = ""
     @Published var character = ""

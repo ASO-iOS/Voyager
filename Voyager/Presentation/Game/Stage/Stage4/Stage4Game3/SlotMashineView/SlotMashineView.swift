@@ -10,8 +10,15 @@ import SwiftUI
 struct SlotMashineView: View {
     
 //    @EnvironmentObject var stage4ViewModel: Stage4ViewModel
-    @EnvironmentObject var slotMashineViewModel: SlotMashineViewModel
+    @ObservedObject var slotMashineViewModel: SlotMashineViewModel
     var completion: () -> Void = {}
+    var depositArray: [Int]
+    
+    init(depositArray: [Int], betAmount: Int, completion: @escaping () -> Void) {
+        self.slotMashineViewModel = SlotMashineViewModel(betAmount: betAmount)
+        self.completion = completion
+        self.depositArray = depositArray
+    }
 
     
     var body: some View {
@@ -38,49 +45,34 @@ struct SlotMashineView: View {
             Spacer()
             
             Text("Сколько ставим-с?")
-                .foregroundColor(.white)
-                .font(.headline)
-                .padding()
-                .frame(maxWidth: 280)
-                .background(Color.mint.opacity(1))
-                .border(Color.black, width: 2)
+                .gameButtonStyle(.textBack)
+            ForEach(depositArray, id: \.self) { deposit in
+                chooseDepositeSizeButton(deposit)
+            }
         
-            chooseDepositeSizeButton(1000)
-            
-            chooseDepositeSizeButton(2500)
-            
-            chooseDepositeSizeButton(4000)
-
-            chooseDepositeSizeButton(5000)
-                .padding(.bottom, 32)
+//            chooseDepositeSizeButton(1000)
+//            
+//            chooseDepositeSizeButton(2500)
+//            
+//            chooseDepositeSizeButton(4000)
+//
+//            chooseDepositeSizeButton(5000)
+                
         }
+        .padding(.bottom, 32)
         .frame(maxWidth: .infinity)
-            .background {
-                        ZStack {
-                            VStack(spacing: 0) {
-                                Spacer()
-                                Rectangle()
-                                    .frame(height: 5)
-                                Rectangle()
-                                    .foregroundStyle(Color(red: 0.13, green: 0.14, blue: 0.19))
-                                    .frame(height: UIScreen.main.bounds.height * 0.5)
-                            }
-                        }.ignoresSafeArea()
-                    }
+        .miniGameBackground()
     }
     
     @ViewBuilder private func chooseDepositeSizeButton(_ size: Int) -> some View {
         Button(action: {
+            BalanceManager.shared.changeBalance(by: size, gameResult: .lose)
             slotMashineViewModel.depositeSize = size
+            slotMashineViewModel.maxDepositeSize = size * 3
             slotMashineViewModel.setPlaying()
         }, label: {
         Text("\(size)")
-                .foregroundColor(.white)
-                .font(.headline)
-                .padding()
-                .frame(maxWidth: 280)
-                .background(Color.orange.opacity(1))
-                .border(Color.black, width: 2)
+                .gameButtonStyle(.nextButton)
         })
     }
     
@@ -119,19 +111,23 @@ struct SlotMashineView: View {
         VStack {
             
             Spacer()
+            Text("\(slotMashineViewModel.depositeSize)")
+                .gameButtonStyle(slotMashineViewModel.depositeBackColor)
+                .padding(.bottom, 32)
+//            Spacer()
             
-            HStack {
-                Button(action: {
-                    slotMashineViewModel.setResult()
-                }, label: {
-                    Text("X")
-                        .padding(.leading, 22)
-                    
-                    Spacer()
-                })
-            }
+//            HStack {
+//                Button(action: {
+//                    slotMashineViewModel.setResult()
+//                }, label: {
+//                    Text("X")
+//                        .padding(.leading, 22)
+//                    
+//                    Spacer()
+//                })
+//            }
             
-            Spacer()
+//            Spacer()
             
             VStack {
                 imageSpinRowView(0, 1, 2)
@@ -140,25 +136,24 @@ struct SlotMashineView: View {
                 
                 
             }
+            .padding(.bottom, 40)
                         
             
-            Spacer()
+//            Spacer()
             
             Button(action: {
                 slotMashineViewModel.startSlotAnimation()
             }, label: {
                 Text("Крутим!!")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: 280)
-                    .background(Color.orange.opacity(1))
-                    .border(Color.black, width: 2)
+                    .gameButtonStyle(.nextButton)
             })
+            .disabled(slotMashineViewModel.isPlaying)
+            .opacity(slotMashineViewModel.isPlaying ? 0.3 : 1.0)
             
-            Spacer()
+//            Spacer()
             
         }
+        .padding(.bottom)
         
     }
 
@@ -167,25 +162,19 @@ struct SlotMashineView: View {
         VStack {
             
             Spacer()
+            Text("\(slotMashineViewModel.depositeSize)")
+                .gameButtonStyle(slotMashineViewModel.depositeBackColor)
+                .padding(.bottom)
+//            Spacer()
             
             Text("Закончили упражнение.")
-                .foregroundColor(.white)
-                .font(.headline)
-                .padding()
-                .frame(maxWidth: 280)
-                .background(Color.mint.opacity(1))
-                .border(Color.black, width: 2)
+                .gameButtonStyle(.textBack)
             
             Button(action: {
                 slotMashineViewModel.setChooseDepositteSize()
             }, label: {
                 Text("Может ещё покрутим?")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: 280)
-                    .background(Color.orange.opacity(1))
-                    .border(Color.black, width: 2)
+                    .gameButtonStyle(.nextButton)
             })
             
             
@@ -194,29 +183,13 @@ struct SlotMashineView: View {
 //                stage4ViewModel.setState(.game4)
             }, label: {
                 Text("Дальше")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: 280)
-                    .background(Color.orange.opacity(1))
-                    .border(Color.black, width: 2)
+                    .gameButtonStyle(.nextButton)
             }) .padding(.bottom, 32)
             
             
         }
         .frame(maxWidth: .infinity)
-            .background {
-                        ZStack {
-                            VStack(spacing: 0) {
-                                Spacer()
-                                Rectangle()
-                                    .frame(height: 5)
-                                Rectangle()
-                                    .foregroundStyle(Color(red: 0.13, green: 0.14, blue: 0.19))
-                                    .frame(height: UIScreen.main.bounds.height * 0.5)
-                            }
-                        }.ignoresSafeArea()
-                    }
+        .miniGameBackground()
     }
 }
 

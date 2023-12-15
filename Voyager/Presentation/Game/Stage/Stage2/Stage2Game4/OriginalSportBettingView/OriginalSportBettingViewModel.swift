@@ -20,6 +20,8 @@ final class OriginalSportBettingViewModel: ObservableObject {
     func resetGame() {
         self.playerRate = 0.0
         self.playerBetSize = 0
+        self.winRate = self.winRate.shuffled()
+        self.drawRate = self.drawRate.shuffled()
         self._gameStatus = .chooseTeam
     }
     

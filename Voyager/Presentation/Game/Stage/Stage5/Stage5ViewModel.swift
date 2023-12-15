@@ -10,11 +10,6 @@ import Foundation
 
 final class Stage5ViewModel: ObservableObject {
     
-    let appController: ApplicationController
-    
-    init(appController: ApplicationController) {
-        self.appController = appController
-    }
     
     @Published var stageState = StorageManager.shared.stage5State
     @Published var background = ""

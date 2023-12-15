@@ -53,8 +53,6 @@ struct Stage1Game1View: View {
             case .game:
                 ShellGameView(completion: {
                     stage1ViewModel.setState(.game2)
-                }, finishCompletion: { bet in
-                    stage1ViewModel.appController.increaseBalance(bet)
                 })
                 .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.3))
             }

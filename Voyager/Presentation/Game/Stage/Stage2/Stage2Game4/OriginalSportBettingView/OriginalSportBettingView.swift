@@ -121,7 +121,7 @@ struct OriginalSportBettingView: View {
             Spacer()
             Text("Здесь в моих планах была красивая анимация полета мяча и забития голов, но мне просто не хватило денег что бы оплатить этот труд нашего дизайнера, поэтому я написал текст который вы все равно не прочтете за 1,5 секунды ))))")
                 .gameButtonStyle(.textBack)
-                .padding(.bottom, 10)
+                .padding(.bottom, 32)
         }
         .frame(maxWidth: .infinity)
         .miniGameBackground()
@@ -154,6 +154,14 @@ struct OriginalSportBettingView: View {
                     .gameButtonStyle(.nextButton)
             }) 
             .padding(.bottom, 32)
+        }
+        .padding(.bottom, 32)
+        .onAppear {
+            BalanceManager.shared.changeBalance(
+                by: isWin ? originalSportBettingViewModel.playerBetSize * Int(originalSportBettingViewModel.playerRate) :
+                    originalSportBettingViewModel.playerBetSize,
+                gameResult: isWin ? .win : .lose
+            )
         }
         .frame(maxWidth: .infinity)
         .miniGameBackground()

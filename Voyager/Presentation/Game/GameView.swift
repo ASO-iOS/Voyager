@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameView: View {
     @EnvironmentObject var appRouter: NavRouter<AppRouteState>
-    @StateObject private var currentStageState = NavRouter<CurrentStageState>(route: StorageManager.shared.currentStageState)
+    @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
     
     var body: some View {
         ZStack {
@@ -17,19 +17,19 @@ struct GameView: View {
                 switch currentStageState.route {
                 case .stage1:
                     Stage1View()
-                        .environmentObject(ViewModelFactory.shared.makeStage1ViewModel())
+                        .environmentObject(Stage1ViewModel())
                 case .stage2:
                     Stage2View()
-                        .environmentObject(ViewModelFactory.shared.makeStage2ViewModel())
+                        .environmentObject(Stage2ViewModel())
                 case .stage3:
                     Stage3View()
-                        .environmentObject(ViewModelFactory.shared.makeStage3ViewModel())
+                        .environmentObject(Stage3ViewModel())
                 case .stage4:
                     Stage4View()
-                        .environmentObject(ViewModelFactory.shared.makeStage4ViewModel())
+                        .environmentObject(Stage4ViewModel())
                 default:
                     Stage5View()
-                        .environmentObject(ViewModelFactory.shared.makeStage5ViewModel())
+                        .environmentObject(Stage5ViewModel())
                 }
             }
             .environmentObject(currentStageState)

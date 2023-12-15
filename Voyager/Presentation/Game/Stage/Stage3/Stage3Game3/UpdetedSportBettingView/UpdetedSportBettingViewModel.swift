@@ -18,6 +18,9 @@ final class UpdetedSportBettingViewModel: ObservableObject {
     }
     
     func setChooseSecondQ() {
+        playerRate = 0.0
+        playerBetSize = 0
+        rate = rate.shuffled()
         _gameStatus = .secondQ
     }
     

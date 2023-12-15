@@ -92,6 +92,9 @@ struct BetWithStrangerView: View {
             }  else {
                 Text(getLabel())
                     .gameButtonStyle(.textBack)
+                    .onAppear {
+                        BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
+                    }
                 Text("Поставить еще?")
                     .gameButtonStyle(.textBack)
                 

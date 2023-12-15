@@ -19,6 +19,7 @@ final class TwentyOneViewModel: ObservableObject {
     @Published var isFinishPresented = false
     @Published var enemyTarget: Int
     @Published var guaranteedWin = false
+    @Published var bet = 0
     
     init(enemyTarget: Int, guaranteedWin: Bool = false) {
         self.deck = []
@@ -125,6 +126,10 @@ final class TwentyOneViewModel: ObservableObject {
             try? await Task.sleep(nanoseconds: 2_000_000_000)
             withAnimation {
                 isFinishPresented = true
+                if gameResult != .draw {
+                    BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
+                }
+                
             }
         }
     }

@@ -122,9 +122,13 @@ struct SRPView: View {
             Spacer()
             
             if sprViewModel.loses == 3 {
-                RPSGameTextView(text: "В следующий раз повезёт, наверное...", color: .textBack)
+                RPSGameTextView(text: "В следующий раз повезёт, наверное...", color: .textBack)    .onAppear {
+                    BalanceManager.shared.changeBalance(by: 150, gameResult: .lose)
+                }
             } else if sprViewModel.wins == 3 {
-                RPSGameTextView(text: "С победой, друг", color: .textBack)
+                RPSGameTextView(text: "С победой, друг", color: .textBack)    .onAppear {
+                    BalanceManager.shared.changeBalance(by: 150, gameResult: .win)
+                }
             }
             
             RPSMainButtonView(text: "Ещё разок?") {
@@ -135,6 +139,7 @@ struct SRPView: View {
                 completion()
             }.padding(.bottom, 52)
         }
+    
         .padding(.bottom, 52)
         
         .frame(maxWidth: .infinity)

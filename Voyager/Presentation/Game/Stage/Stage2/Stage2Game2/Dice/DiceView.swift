@@ -12,15 +12,14 @@ import SwiftUI
 struct DiceView: View {
     @ObservedObject var viewModel: DiceViewViewModel = DiceViewViewModel(diceAmount: 2)
     @State var rotatingFaceName: String = "dice1"
-    @State var bet: Int = 0
     
     var completion: () -> Void = {}
     
     private func getLabel() -> String {
         if viewModel.gameResult == .win {
-            return "+\(bet)"
+            return "+\(viewModel.bet)"
         } else if viewModel.gameResult == .lose {
-            return "-\(bet)"
+            return "-\(viewModel.bet)"
         } else {
             return "Попробуем еще?"
         }
@@ -28,7 +27,7 @@ struct DiceView: View {
     
     var body: some View {
         VStack {
-            if bet == 0 {
+            if viewModel.bet == 0 {
                 VStack {
                     Spacer()
                     Text("Поставить")
@@ -37,7 +36,7 @@ struct DiceView: View {
                     VStack {
                         ForEach([100, 250, 500], id: \.self) { amount in
                             Button(action: {
-                                bet = amount
+                                viewModel.bet = amount
                                 viewModel.rollDice()
                             }, label: {
                                 Text(amount.description)
@@ -45,7 +44,7 @@ struct DiceView: View {
                             })
                         }
                     }
-                    .padding(.bottom, 6)
+                    .padding(.bottom, 24)
                 }
             } else {
                 Spacer()
@@ -56,7 +55,7 @@ struct DiceView: View {
                         ForEach([100, 250, 500], id: \.self) { amount in
                             Button(action: {
                                 viewModel.resetGame()
-                                bet = amount
+                                viewModel.bet = amount
                                 viewModel.rollDice()
                             }, label: {
                                 Text(amount.description)
@@ -105,6 +104,7 @@ struct DiceView: View {
                 }
             }
         }
+        .padding(.bottom, 24)
         .frame(maxWidth: .infinity)
         .miniGameBackground()
     }

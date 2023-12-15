@@ -20,6 +20,7 @@ final class CryptoViewModel: ObservableObject {
     var steps = 50
     var numberOfCharts: Int // Adjust this number for more or fewer charts
     private var initialChartColors: [Color] = []
+    @Published var bet = 0
     
     let baseYValue: Double = 50
     let fluctuationRange: Double = 15
@@ -124,6 +125,7 @@ final class CryptoViewModel: ObservableObject {
         await animateChart()
         withAnimation {
             Bool.random() ? win() : lose()
+            BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
         }
     }
 }

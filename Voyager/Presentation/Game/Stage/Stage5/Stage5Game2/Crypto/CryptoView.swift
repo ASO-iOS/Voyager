@@ -10,7 +10,6 @@ import SwiftUI
 struct CryptoView: View {
     @ObservedObject var viewModel = CryptoViewModel(numberOfCharts: 3)
     @State var runningView: RunningLineView
-    @State var bet = 0
     
     var completion: () -> Void = {}
     
@@ -22,17 +21,18 @@ struct CryptoView: View {
     
     private func getLabel() -> String {
         if viewModel.gameResult == .win {
-            return "+\(bet)"
+            return "+\(viewModel.bet)"
         } else if viewModel.gameResult == .lose {
-            return "-\(bet)"
+            return "-\(viewModel.bet)"
         } else {
             return "Попробуем еще?"
         }
     }
     
     var body: some View {
-        ZStack {
+//        ZStack {
             VStack {
+                Spacer()
                 runningView.frame(height: 100)
                 HStack {
                     ZStack {
@@ -58,7 +58,7 @@ struct CryptoView: View {
                     .scaledToFit()
                 
                 VStack {
-                    Spacer()
+//                    Spacer()
                     if !viewModel.isFinishPresented {
                         Text("Инвестировать")
                             .gameButtonStyle(.textBack)
@@ -66,7 +66,7 @@ struct CryptoView: View {
                         VStack {
                             ForEach([100, 250, 500], id: \.self) { amount in
                                 Button(action: {
-                                    bet = amount
+                                    viewModel.bet = amount
                                     Task {
                                         await viewModel.play()
                                     }
@@ -82,7 +82,7 @@ struct CryptoView: View {
                     } else {
                         Text(getLabel())
                             .gameButtonStyle(.textBack)
-                        Spacer()
+//                        Spacer()
                         Text("Инвестировать еще?")
                             .gameButtonStyle(.textBack)
                         
@@ -104,11 +104,14 @@ struct CryptoView: View {
                 }
                 .padding(.bottom, 6)
             }
-        }
+            .frame(maxWidth: .infinity)
+            .miniGameBackground()
+            
+//        }
     }
 }
 
-
-#Preview {
-    CryptoView()
-}
+//
+//#Preview {
+//    CryptoView()
+//}

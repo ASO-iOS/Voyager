@@ -46,14 +46,8 @@ final class ShellGameViewModel: ObservableObject {
 //                            Task {
 //                                try? await Task.sleep(nanoseconds: 2_000_000_000)
                                 self.isFinish = true
+                            BalanceManager.shared.changeBalance(by: bet, gameResult: isWin ? .win : .lose)
                             
-//                            if isWin {
-//                                balanceManager.changeBalance(amount: bet)
-//                                
-//                            } else {
-//                                balanceManager.changeBalance(amount: -bet)
-//                            }
-//                            }
                         }
             )
         }

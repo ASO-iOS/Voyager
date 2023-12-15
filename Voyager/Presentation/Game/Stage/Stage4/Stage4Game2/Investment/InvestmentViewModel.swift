@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class InvestmentViewModel: ObservableObject {
+    @Published var bet = 0
     @MainActor func resetGame() {
         buttonDisabled = false
         isFinishPresented = false
@@ -105,6 +106,8 @@ final class InvestmentViewModel: ObservableObject {
             } else {
                 Bool.random() ? win() : lose()
             }
+            
+            BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
         }
     }
 }

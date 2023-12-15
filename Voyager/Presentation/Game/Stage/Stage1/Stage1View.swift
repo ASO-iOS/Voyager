@@ -35,22 +35,7 @@ struct Stage1View: View {
                             .padding()
                     })
                     Spacer()
-                    HStack {
-                        Image("coin_balance")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                        Text("\(stageViewModel.appController._balance)")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 18).monospaced().bold())
-                            .padding(.trailing)
-//                            .onChange(of: Balance.balance, perform: {
-//                                _ in
-//                                print("balance changed")
-//                            })
-//                            .onChange(of: StorageManager.shared.gameCash, perform: { value in
-//                                print("StorageManager balance changed")
-//                            })
-                    }
+                    BalanceView()
                 }
                 Spacer()
             }

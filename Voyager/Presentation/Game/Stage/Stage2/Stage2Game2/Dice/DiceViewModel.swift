@@ -20,6 +20,7 @@ class DiceViewViewModel: ObservableObject {
     @Published var gameResult: GameResult
     @Published var guaranteedWin = false
     @Published var isFinishPresented: Bool = false
+    @Published var bet: Int = 0
 
     private var faces: [String]
     
@@ -83,6 +84,10 @@ class DiceViewViewModel: ObservableObject {
             gameResult = score.0 == score.1 ? .draw : score.0 > score.1 ? .win : .lose
             try? await Task.sleep(nanoseconds: UInt64(2000_000_000))
             isFinishPresented = true
+            if gameResult != .draw {
+                BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
+            }
+
 //            try? await Task.sleep(nanoseconds: UInt64(1000_000_000))
         }
     }

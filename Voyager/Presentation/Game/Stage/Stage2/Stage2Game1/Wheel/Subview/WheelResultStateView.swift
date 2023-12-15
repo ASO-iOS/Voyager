@@ -32,15 +32,15 @@ struct WheelResultStateView: View {
             })
             .padding(.bottom, 45)
             
-        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
+        }
+        .onAppear {
+            BalanceManager.shared.changeBalance(by: wheelViewModel.resultAmount.bet, gameResult: wheelViewModel.resultAmount.result)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
             .miniGameBackground()
     }
     
     private func resultVisual() -> String {
-        if wheelViewModel.resultAmount > 0 {
-            return "+\(wheelViewModel.resultAmount)"
-        } else {
-            return "\(wheelViewModel.resultAmount)"
-        }
+        return "\(wheelViewModel.resultAmount.result == .win ? "+" : "-")\(wheelViewModel.resultAmount.bet)"
     }
 }

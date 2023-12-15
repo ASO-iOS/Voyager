@@ -6,6 +6,12 @@ struct LoteryView: View {
 
     @EnvironmentObject var loteryViewModel: LoteryViewModel
     @EnvironmentObject var stage1ViewModel: Stage1ViewModel
+    var price: Int
+    
+    init(price: Int, completion: @escaping () -> Void) {
+        self.price = price
+        self.completion = completion
+    }
     
     var completion = {}
 
@@ -104,14 +110,9 @@ struct LoteryView: View {
                     .gameButtonStyle(.nextButton)
             })
         }
-//        .task {
-//            await balanceManager.changeBalance(amount: 500)
-//        }
-//        .onAppear {
-//            
-////            balanceManager.changeBalance(amount: 500)
-////            print(500)
-//        }
+        .onAppear {
+            BalanceManager.shared.changeBalance(by: loteryViewModel.winChanse[0] < 6 ? price : price * 5, gameResult: loteryViewModel.winChanse[0] < 6 ? .lose : .win)
+        }
         .frame(maxWidth: .infinity)
         .miniGameBackground()
     }

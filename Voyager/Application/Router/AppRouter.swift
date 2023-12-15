@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppRouter: View {
     @StateObject private var appNavRouter = NavRouter<AppRouteState>(route: StorageManager.shared.onboardingPresented ? .main : .onboarding)
+    @StateObject private var currentStageState = NavRouter<CurrentStageState>(route: StorageManager.shared.currentStageState)
     
     var body: some View {
         ZStack {
@@ -34,11 +35,12 @@ struct AppRouter: View {
                     Text("settings")
                 default:
                     MainView()
-                        .environmentObject(ViewModelFactory.shared.makeMainViewModel())
+                        .environmentObject(MainViewModel())
                         .environmentObject(appNavRouter)
                         .transition(.move(edge: .trailing))
                 }
             }
+            .environmentObject(currentStageState)
 //            .transition(.scale)
         }
         

@@ -63,7 +63,7 @@ struct Stage1FreeplayView: View {
                 })
                 .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.3))
             case .game2:
-                LoteryView() {
+                LoteryView(price: 100) {
                     stage1FreeplayViewModel.state = .main
                 }
                 .environmentObject(LoteryViewModel())

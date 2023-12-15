@@ -47,10 +47,9 @@ struct Stage4Game3View: View {
                     stage4Game3ViewModel.nextText(.game)
                 }
             case .game:
-                SlotMashineView() {
+                SlotMashineView(depositArray: [100, 250, 500, 1000], betAmount: 25, completion: {
                     stage4ViewModel.setState(.game4)
-                }
-                    .environmentObject(SlotMashineViewModel())
+                })
             }
             
         }

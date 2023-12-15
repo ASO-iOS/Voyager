@@ -59,12 +59,12 @@ struct Stage5Game2View: View {
                 }
             case .text12:
                 stageView {
-//                    stage5Game2ViewModel.nextText(.game)
-                    stage5ViewModel.setState(.game3)
+                    stage5Game2ViewModel.nextText(.game)
+//                    stage5ViewModel.setState(.game3)
                 }
             case .game:
-                stageView {
-                    
+                CryptoView() {
+                    stage5ViewModel.setState(.game3)
                 }
             }
         }

@@ -35,18 +35,11 @@ struct Stage4View: View {
                             .padding()
                     })
                     Spacer()
-                    HStack {
-                        Image("coin_balance")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-//                        Text("\(appController._balance)")
-//                            .foregroundStyle(.white)
-//                            .font(.system(size: 18).monospaced().bold())
-//                            .padding(.trailing)
-                    }
+                    BalanceView()
                 }
                 Spacer()
             }
+            .zIndex(10)
             switch stageViewModel.stageState {
             case .preview:
                 Stage4PreviewView()

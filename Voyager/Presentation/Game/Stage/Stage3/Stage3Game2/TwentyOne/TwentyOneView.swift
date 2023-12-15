@@ -12,7 +12,6 @@ struct TwentyOneView: View {
     @Namespace private var animation
     @ObservedObject var viewModel: TwentyOneViewModel
     @State var infoPresent = false
-    @State var bet = 0
     
     var completion: () -> Void = {}
     
@@ -28,7 +27,7 @@ struct TwentyOneView: View {
                 .gameButtonStyle(.textBack)
             ForEach([100, 250, 500], id: \.self) { amount in
                 Button {
-                    bet = amount
+                    viewModel.bet = amount
                     Task {
                         await viewModel.startGame()
                     }
@@ -100,9 +99,9 @@ struct TwentyOneView: View {
             Spacer()
             Group {
                 if viewModel.gameResult == .win {
-                    Text("+\(bet)")
+                    Text("+\(viewModel.bet)")
                 } else if viewModel.gameResult == .lose {
-                    Text("-\(bet)")
+                    Text("-\(viewModel.bet)")
                 } else {
                     Text("Ничья!")
                 }

@@ -35,18 +35,11 @@ struct Stage5View: View {
                             .padding()
                     })
                     Spacer()
-                    HStack {
-                        Image("coin_balance")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-//                        Text("\(appController._balance)")
-//                            .foregroundStyle(.white)
-//                            .font(.system(size: 18).monospaced().bold())
-//                            .padding(.trailing)
-                    }
+                    BalanceView()
                 }
                 Spacer()
             }
+            .zIndex(10)
             switch stageViewModel.stageState {
             case .preview:
                 Stage5PreviewView()
@@ -66,24 +59,4 @@ struct Stage5View: View {
         .environmentObject(stageViewModel)
     }
 }
-
-
-
-
-struct Stage5FreePlayView: View {
-    @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
-    @EnvironmentObject var stage5ViewModel: Stage5ViewModel
-    var body: some View {
-        VStack {
-            Text("free play")
-//            Button(action: {
-//                currentStageState.push(route: .stage5)
-//                StorageManager.shared.setCurrentStage(.stage5)
-//            }, label: {
-//                Text("stage 5")
-//            })
-        }
-    }
-}
-
 

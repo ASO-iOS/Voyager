@@ -46,7 +46,7 @@ struct Stage4Game1View: View {
                 }
 
             case .game:
-                LoteryView() {
+                LoteryView(price: 1000) {
                     stage4ViewModel.setState(.game2)
                 }
                 .environmentObject(LoteryViewModel())

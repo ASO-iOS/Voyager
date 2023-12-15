@@ -43,8 +43,9 @@ struct Stage4Game4View: View {
                     stage4Game4ViewModel.nextText(.game)
                 }
             case .game:
-                stageView {
-                    stage4ViewModel.setState(.preview)
+
+                ClickerView() {
+                    stage4ViewModel.setState(.freePlay)
                 }
             }
             

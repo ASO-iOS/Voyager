@@ -9,9 +9,4 @@ import Combine
 
 final class MainViewModel: ObservableObject {
     
-    let appController: ApplicationController
-    
-    init(appController: ApplicationController) {
-        self.appController = appController
-    }
 }

@@ -18,7 +18,7 @@ final class WheelViewModel: ObservableObject {
         self.numSelect = nil
         self.selectType = .byBoth
         self.amount = 0
-        self.resultAmount = 0
+        self.resultAmount = RWGameResult(bet: 0, result: .lose)
         self.resultGameRWData = RWData(color: .green, num: 0, sector: .init(start: 0.0, end: 0.0))
         self.sceneState = .betState
     }
@@ -46,7 +46,7 @@ final class WheelViewModel: ObservableObject {
         self.sceneState = .game
     }
     
-    func setResultScene(_ res: Int) {
+    func setResultScene(_ res: RWGameResult) {
         resultAmount = res
         sceneState = .result
     }
@@ -65,28 +65,28 @@ final class WheelViewModel: ObservableObject {
     
     // MARK: - result scene values
     
-    @Published var resultAmount = 0
+    @Published var resultAmount = RWGameResult(bet: 0, result: .lose)
     @Published var resultGameRWData = RWData(color: .green, num: 0, sector: .init(start: 0.0, end: 0.0))
     
-    func calculateGameResult(amount: Int, selectType: RWSetupType, result: RWData, colorSelect: RWColor? = nil, numSelect: Int? = nil) -> Int {
+    func calculateGameResult(amount: Int, selectType: RWSetupType, result: RWData, colorSelect: RWColor? = nil, numSelect: Int? = nil) -> RWGameResult {
         switch selectType {
         case .byColor:
             if result.color == colorSelect ?? .green {
-                return amount * 2
+                return RWGameResult(bet: amount, result: .win)
             } else {
-                return -amount
+                return RWGameResult(bet: amount, result: .lose)
             }
         case .byNum:
             if result.num == numSelect ?? 0 {
-                return amount * 5
+                return RWGameResult(bet: amount * 5, result: .win)
             } else {
-                return -amount
+                return RWGameResult(bet: amount, result: .lose)
             }
         case .byBoth:
             if result.num == numSelect ?? 0 && result.color == colorSelect ?? .green {
-                return amount * 10
+                return RWGameResult(bet: amount * 10, result: .win)
             } else {
-                return -amount
+                return RWGameResult(bet: amount, result: .lose)
             }
         }
     }
@@ -183,4 +183,9 @@ enum RWSetupType: String, CaseIterable {
     case byColor
     case byNum
     case byBoth
+}
+
+struct RWGameResult {
+    let bet: Int
+    let result: GameResultImpl
 }
