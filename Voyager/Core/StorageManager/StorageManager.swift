@@ -19,6 +19,35 @@ final class StorageManager {
         onboardingPresented.toggle()
     }
     
+    @AppStorage(SMKeys.GAME_TEXT_SIZE) private(set) var textSize = 14
+    
+    func textSizeDown() {
+        if textSize > 9 {
+            textSize -= 1
+        }
+        
+    }
+    
+    func textSizeUp() {
+        if textSize < 24 {
+            textSize += 1
+        }
+       
+    }
+    
+    @AppStorage(SMKeys.GAME_TEXT_SPEED) private(set) var textSpeed  = 10_000_000
+    func textSpeedDown() {
+        if textSpeed > 1_000_000 {
+            textSpeed -= 1_000_000
+        }
+        
+    }
+    func textSpeedUp() {
+        if textSpeed < 100_000_000 {
+            textSpeed += 1_000_000
+        }
+    }
+    
     //MARK: - stage state
     
     @AppStorage(SMKeys.STAGE_1_STATE) private(set) var stage1State = GameStageState.preview
@@ -87,6 +116,14 @@ final class StorageManager {
         }
     }
     
+    @AppStorage(SMKeys.IS_NEW_GAME) private(set) var isNewGame = true
+    
+    func toggleIsGame() {
+        isNewGame.toggle()
+    }
+    
+    
+    
     //MARK: - cash
     
 //    @AppStorage(SMKeys.GAME_CASH) private(set) var gameCash = 50
@@ -94,6 +131,8 @@ final class StorageManager {
 //    func setCash(_ value: Int) {
 //        gameCash = value
 //    }
+    
+    
 }
 
 enum GameResultImpl {

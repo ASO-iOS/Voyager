@@ -33,10 +33,83 @@ final class InvestmentViewModel: ObservableObject {
     @Published var isFinishPresented = false
     @Published var gameResult: GameResult = .draw
     @Published var guaranteedWin = false
+    @Published var winChance: Double = 0.6
     var steps = 50
     
-    init(guaranteedWin: Bool = false) {
-        self.guaranteedWin = guaranteedWin
+    private var karmaBonus: Double  {
+        switch StorageManager.shared.gameKarma {
+        case 0:
+            return -0.33
+            
+        case 5:
+            return -0.30
+            
+        case 10:
+            return -0.27
+            
+        case 15:
+            return -0.24
+            
+        case 20:
+            return -0.21
+            
+        case 25:
+            return -0.18
+            
+        case 30:
+            return -0.15
+            
+        case 35:
+            return -0.12
+            
+        case 40:
+            return -0.09
+            
+        case 45:
+            return -0.03
+            
+        case 50:
+            return 0
+            
+        case 55:
+            return 0.03
+            
+        case 60:
+            return 0.09
+            
+        case 65:
+            return 0.12
+            
+        case 70:
+            return 0.15
+            
+        case 75:
+            return 0.18
+            
+        case 80:
+            return 0.21
+            
+        case 85:
+            return 0.24
+            
+        case 90:
+            return 0.27
+            
+        case 95:
+            return 0.30
+            
+        case 100:
+            return 0.33
+            
+            
+        default:
+            return 0
+        }
+    }
+    
+    
+    init(winChance: Double = 0.2) {
+        self.winChance = winChance
     }
     
     func showFinishScreen() {
@@ -101,12 +174,7 @@ final class InvestmentViewModel: ObservableObject {
     func play() async {
         await animateChart()
         withAnimation {
-            if guaranteedWin {
-                win()
-            } else {
-                Bool.random() ? win() : lose()
-            }
-            
+            Double.random(in: 0...1) < winChance + karmaBonus ? win() : lose()
             BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
         }
     }

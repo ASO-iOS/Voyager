@@ -95,7 +95,7 @@ struct Stage5PreviewView: View {
         for char in stage5PreviewViewModel.phraseSource.text {
             stage5PreviewViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: Constant.delay)
+                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
             }
         }
         stage5PreviewViewModel.printingFinished.toggle()

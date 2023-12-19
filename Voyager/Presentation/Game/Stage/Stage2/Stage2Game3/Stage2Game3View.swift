@@ -56,11 +56,7 @@ struct Stage2Game3View: View {
                 ShellGameView(completion: {
                     stage2ViewModel.setState(.game4)
                 })
-                    .environmentObject(ShellGameViewModel(cupsCount: 5
-                                                          , winChance: 0.3))
-//                ShellGameView() {
-//                    stage2ViewModel.setState(.game4)
-//                }
+                    .environmentObject(ShellGameViewModel(cupsCount: 5, winChance: 0.3))
             }
         }
         .onAppear {
@@ -108,7 +104,7 @@ struct Stage2Game3View: View {
         for char in stage2Game3ViewModel.phraseSource.text {
             stage2Game3ViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: Constant.delay)
+                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
             }
         }
         stage2Game3ViewModel.printingFinished.toggle()

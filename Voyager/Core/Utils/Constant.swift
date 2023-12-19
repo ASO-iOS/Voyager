@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constant {
-    static let delay: UInt64 = 1_000_000
+    static var delay: UInt64 = UInt64(StorageManager.shared.textSpeed)
 }

@@ -9,4 +9,16 @@ import Combine
 
 final class MainViewModel: ObservableObject {
     
+    @Published private(set) var _gameStatus: GameStatus = StorageManager.shared.isNewGame ? .newGame : .continueGame
+
+    
+    func startNewGame() {
+        StorageManager.shared.toggleIsGame()
+        _gameStatus = .continueGame
+    }
+    
+    enum GameStatus {
+        case newGame, continueGame
+    }
+    
 }

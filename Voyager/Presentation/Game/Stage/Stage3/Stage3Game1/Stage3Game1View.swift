@@ -90,7 +90,7 @@ struct Stage3Game1View: View {
         for char in stage3Game1ViewModel.phraseSource.text {
             stage3Game1ViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: Constant.delay)
+                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
             }
         }
         stage3Game1ViewModel.printingFinished.toggle()

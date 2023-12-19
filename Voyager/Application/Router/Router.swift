@@ -32,6 +32,10 @@ struct RouteStack<V: NavHost> {
 class NavRouter<V: NavHost>: ObservableObject {
     @Published var route: V?
     
+    @Published var direction: NavDirection = .forward
+    
+    private let duration = 0.2
+    
     var routeStack = RouteStack<V>() {
         didSet { self.route = routeStack.top() }
     }
@@ -41,7 +45,8 @@ class NavRouter<V: NavHost>: ObservableObject {
     }
     
     func push(route: V) {
-        withAnimation(.bouncy(duration: 0.3)) {
+        withAnimation(.smooth(duration: duration)) {
+            direction = .forward
             routeStack.push(route)
         }
         
@@ -49,16 +54,22 @@ class NavRouter<V: NavHost>: ObservableObject {
     
     func pop() {
         
-        withAnimation(.bouncy(duration: 0.3)) {
+        withAnimation(.smooth(duration: duration)) {
+            direction = .backward
             routeStack.pop()
         }
     }
     
     func popToRoot() {
         
-        withAnimation(.linear(duration: 0.3)) {
+        withAnimation(.linear(duration: duration)) {
+            direction = .backward
             routeStack.popToRoot()
         }
+    }
+    
+    enum NavDirection {
+        case forward, backward
     }
 }
 

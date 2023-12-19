@@ -45,6 +45,9 @@
 		8413DFCA2B0FAE2B009AE42F /* Stage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFC92B0FAE2B009AE42F /* Stage1View.swift */; };
 		8413DFCC2B0FAE60009AE42F /* Stage1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFCB2B0FAE60009AE42F /* Stage1ViewModel.swift */; };
 		8413DFCF2B0FAF96009AE42F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFCE2B0FAF96009AE42F /* Router.swift */; };
+		8438B1F42B31B319006CC1A0 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438B1F22B31B319006CC1A0 /* OptionView.swift */; };
+		8438B1F52B31B319006CC1A0 /* OptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438B1F32B31B319006CC1A0 /* OptionViewModel.swift */; };
+		8438B1F72B31B33F006CC1A0 /* SmartPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438B1F62B31B33F006CC1A0 /* SmartPhoneView.swift */; };
 		844827622B29E8FF004EF5F7 /* WheelComplicatedBetStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827612B29E8FF004EF5F7 /* WheelComplicatedBetStateView.swift */; };
 		844827642B29E916004EF5F7 /* WheelComplicatedSetupTypeStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827632B29E916004EF5F7 /* WheelComplicatedSetupTypeStateView.swift */; };
 		844827662B29E925004EF5F7 /* WheelComplicatedByColorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827652B29E925004EF5F7 /* WheelComplicatedByColorStateView.swift */; };
@@ -76,6 +79,14 @@
 		844827A42B2B5668004EF5F7 /* ClickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827A22B2B5668004EF5F7 /* ClickerViewModel.swift */; };
 		844827A72B2B6CE8004EF5F7 /* CharityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827A62B2B6CE7004EF5F7 /* CharityView.swift */; };
 		844827A92B2B6CF0004EF5F7 /* CharityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827A82B2B6CF0004EF5F7 /* CharityViewModel.swift */; };
+		844827AC2B2C6FF4004EF5F7 /* CharitySelectShesterkaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827AB2B2C6FF4004EF5F7 /* CharitySelectShesterkaView.swift */; };
+		844827AE2B2C7013004EF5F7 /* CharitySelectAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827AD2B2C7013004EF5F7 /* CharitySelectAmountView.swift */; };
+		844827B12B2C795A004EF5F7 /* CharityLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827B02B2C795A004EF5F7 /* CharityLoadingView.swift */; };
+		844827B32B2C7964004EF5F7 /* CharityResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827B22B2C7964004EF5F7 /* CharityResultView.swift */; };
+		844827B62B2C8BE6004EF5F7 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827B52B2C8BE6004EF5F7 /* AboutUsView.swift */; };
+		844827B82B2C8C3F004EF5F7 /* PolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827B72B2C8C3F004EF5F7 /* PolicyView.swift */; };
+		844827BB2B2C8CD1004EF5F7 /* TextSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827BA2B2C8CD1004EF5F7 /* TextSizeView.swift */; };
+		844827BD2B2C8CFC004EF5F7 /* TextSpeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844827BC2B2C8CFC004EF5F7 /* TextSpeedView.swift */; };
 		844D15712B1A2AFD00896576 /* Stage2PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D15702B1A2AFD00896576 /* Stage2PreviewView.swift */; };
 		844D15732B1A2B0700896576 /* Stage2PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D15722B1A2B0700896576 /* Stage2PreviewViewModel.swift */; };
 		844D15752B1A2B1200896576 /* Stage2Game1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D15742B1A2B1200896576 /* Stage2Game1View.swift */; };
@@ -208,6 +219,9 @@
 		8413DFC92B0FAE2B009AE42F /* Stage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1View.swift; sourceTree = "<group>"; };
 		8413DFCB2B0FAE60009AE42F /* Stage1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1ViewModel.swift; sourceTree = "<group>"; };
 		8413DFCE2B0FAF96009AE42F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8438B1F22B31B319006CC1A0 /* OptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		8438B1F32B31B319006CC1A0 /* OptionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionViewModel.swift; sourceTree = "<group>"; };
+		8438B1F62B31B33F006CC1A0 /* SmartPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartPhoneView.swift; sourceTree = "<group>"; };
 		844827612B29E8FF004EF5F7 /* WheelComplicatedBetStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelComplicatedBetStateView.swift; sourceTree = "<group>"; };
 		844827632B29E916004EF5F7 /* WheelComplicatedSetupTypeStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelComplicatedSetupTypeStateView.swift; sourceTree = "<group>"; };
 		844827652B29E925004EF5F7 /* WheelComplicatedByColorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelComplicatedByColorStateView.swift; sourceTree = "<group>"; };
@@ -239,6 +253,14 @@
 		844827A22B2B5668004EF5F7 /* ClickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickerViewModel.swift; sourceTree = "<group>"; };
 		844827A62B2B6CE7004EF5F7 /* CharityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityView.swift; sourceTree = "<group>"; };
 		844827A82B2B6CF0004EF5F7 /* CharityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityViewModel.swift; sourceTree = "<group>"; };
+		844827AB2B2C6FF4004EF5F7 /* CharitySelectShesterkaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharitySelectShesterkaView.swift; sourceTree = "<group>"; };
+		844827AD2B2C7013004EF5F7 /* CharitySelectAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharitySelectAmountView.swift; sourceTree = "<group>"; };
+		844827B02B2C795A004EF5F7 /* CharityLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityLoadingView.swift; sourceTree = "<group>"; };
+		844827B22B2C7964004EF5F7 /* CharityResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityResultView.swift; sourceTree = "<group>"; };
+		844827B52B2C8BE6004EF5F7 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		844827B72B2C8C3F004EF5F7 /* PolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyView.swift; sourceTree = "<group>"; };
+		844827BA2B2C8CD1004EF5F7 /* TextSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeView.swift; sourceTree = "<group>"; };
+		844827BC2B2C8CFC004EF5F7 /* TextSpeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSpeedView.swift; sourceTree = "<group>"; };
 		844D15702B1A2AFD00896576 /* Stage2PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2PreviewView.swift; sourceTree = "<group>"; };
 		844D15722B1A2B0700896576 /* Stage2PreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2PreviewViewModel.swift; sourceTree = "<group>"; };
 		844D15742B1A2B1200896576 /* Stage2Game1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2Game1View.swift; sourceTree = "<group>"; };
@@ -429,6 +451,7 @@
 		840BDB222B1E0790004E1D7C /* Stage5Game1 */ = {
 			isa = PBXGroup;
 			children = (
+				8438B1F12B31B319006CC1A0 /* Options */,
 				840BDB2B2B1E080A004E1D7C /* Stage5Game1View.swift */,
 				840BDB2D2B1E0814004E1D7C /* Stage5Game1ViewModel.swift */,
 			);
@@ -557,6 +580,15 @@
 			path = Stage1;
 			sourceTree = "<group>";
 		};
+		8438B1F12B31B319006CC1A0 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				8438B1F22B31B319006CC1A0 /* OptionView.swift */,
+				8438B1F32B31B319006CC1A0 /* OptionViewModel.swift */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
 		844827602B29E88A004EF5F7 /* Subview */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,10 +658,40 @@
 		844827A52B2B6CD4004EF5F7 /* Charity */ = {
 			isa = PBXGroup;
 			children = (
+				844827AA2B2C6FD8004EF5F7 /* Subview */,
 				844827A62B2B6CE7004EF5F7 /* CharityView.swift */,
 				844827A82B2B6CF0004EF5F7 /* CharityViewModel.swift */,
 			);
 			path = Charity;
+			sourceTree = "<group>";
+		};
+		844827AA2B2C6FD8004EF5F7 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				844827AB2B2C6FF4004EF5F7 /* CharitySelectShesterkaView.swift */,
+				844827AD2B2C7013004EF5F7 /* CharitySelectAmountView.swift */,
+				844827B02B2C795A004EF5F7 /* CharityLoadingView.swift */,
+				844827B22B2C7964004EF5F7 /* CharityResultView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		844827B42B2C8BCD004EF5F7 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				844827B52B2C8BE6004EF5F7 /* AboutUsView.swift */,
+				844827B72B2C8C3F004EF5F7 /* PolicyView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		844827B92B2C8CAA004EF5F7 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				844827BA2B2C8CD1004EF5F7 /* TextSizeView.swift */,
+				844827BC2B2C8CFC004EF5F7 /* TextSpeedView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		844D156A2B1A2A9F00896576 /* Stage2Preview */ = {
@@ -1020,6 +1082,7 @@
 		84B320E22B2765E8005CC51F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				8438B1F62B31B33F006CC1A0 /* SmartPhoneView.swift */,
 				84F4C3AE2B27438700485550 /* MiniGameBackground.swift */,
 				84B320E32B2765F7005CC51F /* GameButtonModifier.swift */,
 				8448279E2B2B3FFE004EF5F7 /* BalanceView.swift */,
@@ -1076,6 +1139,7 @@
 		84BF51ED2B0B6F0C00CC2D9F /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
+				844827B92B2C8CAA004EF5F7 /* Subviews */,
 				84BF51EF2B0B6F2300CC2D9F /* SettingsView.swift */,
 				84BF51F12B0B718800CC2D9F /* SettingsViewModel.swift */,
 			);
@@ -1085,6 +1149,7 @@
 		84BF51EE2B0B6F1400CC2D9F /* InfoView */ = {
 			isa = PBXGroup;
 			children = (
+				844827B42B2C8BCD004EF5F7 /* Subviews */,
 				84BF52022B0B772400CC2D9F /* InfoView.swift */,
 				84BF52042B0B772F00CC2D9F /* InfoViewModel.swift */,
 			);
@@ -1280,6 +1345,7 @@
 				84AC0D952B1F2ED6004FA735 /* Stage3Game3View.swift in Sources */,
 				8448278E2B2B0158004EF5F7 /* InvestmentView.swift in Sources */,
 				84BF52052B0B772F00CC2D9F /* InfoViewModel.swift in Sources */,
+				844827BD2B2C8CFC004EF5F7 /* TextSpeedView.swift in Sources */,
 				8448279F2B2B3FFE004EF5F7 /* BalanceView.swift in Sources */,
 				840BDB3A2B1E0914004E1D7C /* Stage5Game4ViewModel.swift in Sources */,
 				844D15732B1A2B0700896576 /* Stage2PreviewViewModel.swift in Sources */,
@@ -1291,6 +1357,7 @@
 				8406841D2B1A0D8400E0C8E6 /* Stage1PreviewView.swift in Sources */,
 				84C62E162B04F39B00A11644 /* AppDelegate.swift in Sources */,
 				84AC0DB22B1F2EFF004FA735 /* Stage4PreviewView.swift in Sources */,
+				844827AE2B2C7013004EF5F7 /* CharitySelectAmountView.swift in Sources */,
 				84741EE12B15EAB4000B8C59 /* PhraseData.swift in Sources */,
 				840DE7472B272D7E00C44540 /* SlotMashineViewModel.swift in Sources */,
 				84AC0DB42B1F2EFF004FA735 /* Stage4Game3View.swift in Sources */,
@@ -1300,6 +1367,7 @@
 				8413DFC42B0FAC86009AE42F /* StorageManager.swift in Sources */,
 				840BDB322B1E08E6004E1D7C /* Stage5Game2ViewModel.swift in Sources */,
 				840BDB2C2B1E080A004E1D7C /* Stage5Game1View.swift in Sources */,
+				844827B12B2C795A004EF5F7 /* CharityLoadingView.swift in Sources */,
 				840BDB342B1E08F3004E1D7C /* Stage5Game3View.swift in Sources */,
 				844827852B2A1827004EF5F7 /* Stage1FreeplayView.swift in Sources */,
 				848AFBF62B1F5FEF0071D4AE /* Stage1Game4ViewModel.swift in Sources */,
@@ -1311,6 +1379,7 @@
 				84BF51E82B0B6CDE00CC2D9F /* ContantView.swift in Sources */,
 				8448276E2B29E961004EF5F7 /* WheelComplicatedResultStateView.swift in Sources */,
 				8448279A2B2B03EC004EF5F7 /* CryptoView.swift in Sources */,
+				844827BB2B2C8CD1004EF5F7 /* TextSizeView.swift in Sources */,
 				840BDB302B1E08D9004E1D7C /* Stage5Game2View.swift in Sources */,
 				8448277B2B29EE18004EF5F7 /* CardSuit.swift in Sources */,
 				840DE74C2B2732A500C44540 /* GameResult.swift in Sources */,
@@ -1332,6 +1401,7 @@
 				84B320BB2B2738F5005CC51F /* UpdetedSportBettingView.swift in Sources */,
 				844D15752B1A2B1200896576 /* Stage2Game1View.swift in Sources */,
 				844D15852B1A2B6900896576 /* Stage2FreeplayView.swift in Sources */,
+				8438B1F42B31B319006CC1A0 /* OptionView.swift in Sources */,
 				84741E762B14EBC7000B8C59 /* Stage3ViewModel.swift in Sources */,
 				848AFBFB2B1F6D5B0071D4AE /* LoteryViewModel.swift in Sources */,
 				84AC0DBC2B1F2F60004FA735 /* Stage4References.swift in Sources */,
@@ -1341,12 +1411,15 @@
 				84BF52002B0B761300CC2D9F /* OnboardingViewModel.swift in Sources */,
 				84AC0DAD2B1F2EFF004FA735 /* Stage4Game2View.swift in Sources */,
 				8413DFBF2B0F7728009AE42F /* WheelComplicatedView.swift in Sources */,
+				844827B62B2C8BE6004EF5F7 /* AboutUsView.swift in Sources */,
 				840DE7532B2732FD00C44540 /* ShellGameViewModel.swift in Sources */,
+				8438B1F72B31B33F006CC1A0 /* SmartPhoneView.swift in Sources */,
 				840A3FC42B20B00400D12925 /* Constant.swift in Sources */,
 				84741E702B14EB8E000B8C59 /* Stage2View.swift in Sources */,
 				840684312B1A0F5A00E0C8E6 /* Stage1Game2ViewModel.swift in Sources */,
 				84A63D342B28CF6100FCDB6F /* WheelByBothStateView.swift in Sources */,
 				8413DFCC2B0FAE60009AE42F /* Stage1ViewModel.swift in Sources */,
+				8438B1F52B31B319006CC1A0 /* OptionViewModel.swift in Sources */,
 				844827912B2B0319004EF5F7 /* Stage4FreePlayView.swift in Sources */,
 				840684112B17945600E0C8E6 /* FinalReference.swift in Sources */,
 				84741EEC2B16514B000B8C59 /* Stage5References.swift in Sources */,
@@ -1357,6 +1430,7 @@
 				844827A32B2B5668004EF5F7 /* ClickerView.swift in Sources */,
 				844827662B29E925004EF5F7 /* WheelComplicatedByColorStateView.swift in Sources */,
 				840DE7422B272D0500C44540 /* MexicoHippodromViewModel.swift in Sources */,
+				844827AC2B2C6FF4004EF5F7 /* CharitySelectShesterkaView.swift in Sources */,
 				844D15792B1A2B2F00896576 /* Stage2Game2View.swift in Sources */,
 				84741E722B14EB9A000B8C59 /* Stage2ViewModel.swift in Sources */,
 				84BF51F22B0B718800CC2D9F /* SettingsViewModel.swift in Sources */,
@@ -1377,6 +1451,7 @@
 				84BF51F62B0B719D00CC2D9F /* MainViewModel.swift in Sources */,
 				848AFBF42B1F5FE50071D4AE /* Stage1Game4View.swift in Sources */,
 				8448278C2B2B0158004EF5F7 /* LineChartView.swift in Sources */,
+				844827B82B2C8C3F004EF5F7 /* PolicyView.swift in Sources */,
 				844827A72B2B6CE8004EF5F7 /* CharityView.swift in Sources */,
 				84AC0D982B1F2ED6004FA735 /* Stage3PreviewView.swift in Sources */,
 				84741E672B14D4CD000B8C59 /* AppRouter.swift in Sources */,
@@ -1384,6 +1459,7 @@
 				840BDB282B1E07EA004E1D7C /* Stage5PreviewView.swift in Sources */,
 				840BDB382B1E090A004E1D7C /* Stage5Game4View.swift in Sources */,
 				840DE7542B2732FD00C44540 /* ShellGameView.swift in Sources */,
+				844827B32B2C7964004EF5F7 /* CharityResultView.swift in Sources */,
 				8406842D2B1A0F4500E0C8E6 /* Stage1Game1ViewModel.swift in Sources */,
 				84A63D3B2B28D80400FCDB6F /* BetWithStrangerView.swift in Sources */,
 				84AC0D972B1F2ED6004FA735 /* Stage3PreviewViewModel.swift in Sources */,

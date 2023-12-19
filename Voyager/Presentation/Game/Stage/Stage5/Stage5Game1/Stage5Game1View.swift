@@ -52,12 +52,11 @@ struct Stage5Game1View: View {
                 }
             case .text10:
                 stageView {
-//                    stage5Game1ViewModel.nextText(.game)
-                    stage5ViewModel.setState(.game2)
+                    stage5Game1ViewModel.nextText(.game)
                 }
             case .game:
-                stageView {
-                    
+                OptionView() {
+                    stage5ViewModel.setState(.game2)
                 }
             }
         }
@@ -107,7 +106,7 @@ struct Stage5Game1View: View {
         for char in stage5Game1ViewModel.phraseSource.text {
             stage5Game1ViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: Constant.delay)
+                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
             }
         }
         stage5Game1ViewModel.printingFinished.toggle()

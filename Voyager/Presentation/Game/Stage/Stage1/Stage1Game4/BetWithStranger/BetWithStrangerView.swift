@@ -16,6 +16,79 @@ struct BetWithStrangerView: View {
     @State private var deltaAngle: CGFloat = 0
     @State private var gameResult: GameResult = .draw
     var winChance = 0.5
+    
+    private var karmaBonus: Double  {
+        switch StorageManager.shared.gameKarma {
+        case 0:
+            return -0.45
+            
+        case 5:
+            return -0.40
+            
+        case 10:
+            return -0.35
+            
+        case 15:
+            return -0.30
+            
+        case 20:
+            return -0.25
+            
+        case 25:
+            return -0.20
+            
+        case 30:
+            return -0.15
+            
+        case 35:
+            return -0.10
+            
+        case 40:
+            return -0.07
+            
+        case 45:
+            return -0.03
+            
+        case 50:
+            return 0
+            
+        case 55:
+            return 0.03
+            
+        case 60:
+            return 0.07
+            
+        case 65:
+            return 0.10
+            
+        case 70:
+            return 0.15
+            
+        case 75:
+            return 0.20
+            
+        case 80:
+            return 0.25
+            
+        case 85:
+            return 0.30
+            
+        case 90:
+            return 0.35
+            
+        case 95:
+            return 0.40
+            
+        case 100:
+            return 0.45
+            
+            
+        default:
+            return 0
+        }
+    }
+    
+    
     var completion = {}
     
     private func getLabel() -> String {
@@ -29,7 +102,7 @@ struct BetWithStrangerView: View {
     }
     
     private func flip() {
-        gameResult = winChance > Double.random(in: 0...1) ? .win : .lose
+        gameResult = winChance + karmaBonus > Double.random(in: 0...1) ? .win : .lose
         deltaAngle = gameResult == .win ? 0 : 180
         Task {
             withAnimation(Animation.easeInOut(duration: 2)) {

@@ -14,34 +14,40 @@ struct AppRouter: View {
     var body: some View {
         ZStack {
             
-                Color.red.ignoresSafeArea(.all)
+            Image("backPreview")
+                .resizable()
+                .ignoresSafeArea(.all)
         
             Group {
-                
                 switch appNavRouter.route {
                 case .onboarding:
-                    Button(action: {
-                        appNavRouter.push(route: .main)
-                        StorageManager.shared.toggleOnboarding()
-                    }, label: {
-                        Text("skip onboarding")
-                    })
+                    OnboardingView()
+                        .environmentObject(OnboardingViewModel())
+
                 case .game:
                     GameView()
-                        .environmentObject(appNavRouter)
                 case .info:
-                    Text("info")
+                    InfoView()
                 case .settings:
-                    Text("settings")
+                    SettingsView()
+                case .textSize:
+                    TextSizeView()
+                case .textSpeed:
+                    TextSpeedView()
+                case .privacy:
+                    PolicyView()
+                case .aboutUs:
+                    AboutUsView()
+                    
                 default:
                     MainView()
                         .environmentObject(MainViewModel())
-                        .environmentObject(appNavRouter)
-                        .transition(.move(edge: .trailing))
+                        
                 }
             }
+            .transition(.move(edge: appNavRouter.direction == .forward ? .trailing : .leading))
+            .environmentObject(appNavRouter)
             .environmentObject(currentStageState)
-//            .transition(.scale)
         }
         
     }
@@ -53,6 +59,10 @@ enum AppRouteState: NavHost {
     case game
     case info
     case settings
+    case textSpeed
+    case textSize
+    case privacy
+    case aboutUs
 }
 enum GameStageState: String, NavHost {
     case preview
@@ -69,4 +79,19 @@ enum CurrentStageState: String, NavHost {
     case stage3
     case stage4
     case stage5
+    
+    var value: String {
+        switch self {
+        case .stage1:
+            return "Глава 1"
+        case .stage2:
+            return "Глава 2"
+        case .stage3:
+            return "Глава 3"
+        case .stage4:
+            return "Глава 4"
+        case .stage5:
+            return "Глава 5"
+        }
+    }
 }

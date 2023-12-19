@@ -142,8 +142,8 @@ struct Stage3PreviewView: View {
         for char in stage3PreviewViewModel.phraseSource.text {
             stage3PreviewViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: Constant.delay)
-//                try await Task.sleep(nanoseconds: Constant.delay)
+                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
+//                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
             }
         }
         stage3PreviewViewModel.printingFinished.toggle()

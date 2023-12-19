@@ -17,6 +17,79 @@ final class CryptoViewModel: ObservableObject {
     @Published var buttonDisabled = false
     @Published var isFinishPresented = false
     @Published var gameResult: GameResult = .draw
+    @Published var winChance: Double = 0.2
+    
+    private var karmaBonus: Double {
+        switch StorageManager.shared.gameKarma {
+        case 0:
+            return -0.17
+            
+        case 5:
+            return -0.16
+            
+        case 10:
+            return -0.14
+            
+        case 15:
+            return -0.12
+            
+        case 20:
+            return -0.10
+            
+        case 25:
+            return -0.08
+            
+        case 30:
+            return -0.06
+            
+        case 35:
+            return -0.04
+            
+        case 40:
+            return -0.02
+            
+        case 45:
+            return -0.01
+            
+        case 50:
+            return 0
+            
+        case 55:
+            return 0.01
+            
+        case 60:
+            return 0.02
+            
+        case 65:
+            return 0.04
+            
+        case 70:
+            return 0.06
+            
+        case 75:
+            return 0.08
+            
+        case 80:
+            return 0.10
+            
+        case 85:
+            return 0.12
+            
+        case 90:
+            return 0.14
+            
+        case 95:
+            return 0.16
+            
+        case 100:
+            return 0.17
+            
+            
+        default:
+            return 0
+        }
+    }
+    
     var steps = 50
     var numberOfCharts: Int // Adjust this number for more or fewer charts
     private var initialChartColors: [Color] = []
@@ -25,8 +98,9 @@ final class CryptoViewModel: ObservableObject {
     let baseYValue: Double = 50
     let fluctuationRange: Double = 15
 
-    init(numberOfCharts: Int = 1) {
+    init(numberOfCharts: Int = 1, winChance: Double = 0.2) {
         self.numberOfCharts = numberOfCharts
+        self.winChance = winChance
         setupCharts()
         Task {
             await animateChart(delay: 0)
@@ -124,7 +198,7 @@ final class CryptoViewModel: ObservableObject {
     func play() async {
         await animateChart()
         withAnimation {
-            Bool.random() ? win() : lose()
+            Double.random(in: 0...1) < winChance + karmaBonus ? win() : lose()
             BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
         }
     }

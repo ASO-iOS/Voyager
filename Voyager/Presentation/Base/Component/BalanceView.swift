@@ -9,15 +9,23 @@ import SwiftUI
 
 struct BalanceView: View {
     @ObservedObject var displayCash = BalanceManager.shared
+    var withPadding: Bool = true
     var body: some View {
         HStack {
             Image("coin_balance")
                 .resizable()
                 .frame(width: 30, height: 30)
-            Text("\(displayCash.balance)")
-                .foregroundStyle(.white)
-                .font(.system(size: 18).monospaced().bold())
-                .padding(.trailing)
+            if withPadding {
+                Text("\(displayCash.balance)")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 18).monospaced().bold())
+                    .padding(.trailing)
+            } else {
+                Text("\(displayCash.balance)")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 18).monospaced().bold())
+            }
+            
         }
     }
 }
