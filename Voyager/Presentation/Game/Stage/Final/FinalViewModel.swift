@@ -15,7 +15,15 @@ final class FinalViewModel: ObservableObject {
     @Published var phraseSource = FinalReference.shared.phrases[0]
     @Published var background = ""
     @Published var character = ""
+    @Published var delay = UInt64(StorageManager.shared.textSpeed)
     
+    func resetDelay() {
+        delay = UInt64(StorageManager.shared.textSpeed)
+    }
+    
+    func skipText() {
+        delay = 0
+    }
 
     
     func nextText(_ state: FinalState) {

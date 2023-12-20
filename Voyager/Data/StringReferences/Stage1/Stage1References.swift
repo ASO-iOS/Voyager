@@ -134,6 +134,7 @@ struct Stage1ThimblesReference: PhraseDelegate {
 //import Foundation
 //import SwiftUI
 
+import Foundation
 
 struct Stage1LotteryReference: PhraseDelegate {
     

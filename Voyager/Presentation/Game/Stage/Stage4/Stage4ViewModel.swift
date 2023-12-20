@@ -9,10 +9,18 @@ import Combine
 import Foundation
 
 final class Stage4ViewModel: ObservableObject {
-    
     @Published var stageState = StorageManager.shared.stage4State
     @Published var background = ""
     @Published var character = ""
+    @Published var delay = UInt64(StorageManager.shared.textSpeed)
+    
+    func resetDelay() {
+        delay = UInt64(StorageManager.shared.textSpeed)
+    }
+    
+    func skipText() {
+        delay = 0
+    }
     func setState(_ state: GameStageState) {
         DispatchQueue.main.async {
             StorageManager.shared.setStage4State(state)

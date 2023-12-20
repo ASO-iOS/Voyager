@@ -53,7 +53,6 @@ class NavRouter<V: NavHost>: ObservableObject {
     }
     
     func pop() {
-        
         withAnimation(.smooth(duration: duration)) {
             direction = .backward
             routeStack.pop()
@@ -61,7 +60,6 @@ class NavRouter<V: NavHost>: ObservableObject {
     }
     
     func popToRoot() {
-        
         withAnimation(.linear(duration: duration)) {
             direction = .backward
             routeStack.popToRoot()

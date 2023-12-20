@@ -71,6 +71,9 @@ struct Stage5PreviewView: View {
             Text(stage5PreviewViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    stage5ViewModel.skipText()
+                }
             
             Button(action: {
                 nextState()
@@ -95,9 +98,10 @@ struct Stage5PreviewView: View {
         for char in stage5PreviewViewModel.phraseSource.text {
             stage5PreviewViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
+                try await Task.sleep(nanoseconds: stage5ViewModel.delay)
             }
         }
         stage5PreviewViewModel.printingFinished.toggle()
+        stage5ViewModel.resetDelay()
     }
 }

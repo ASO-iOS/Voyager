@@ -81,6 +81,9 @@ struct Stage4PreviewView: View {
             Text(stage4PreviewViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    stage4ViewModel.skipText()
+                }
             
             Button(action: {
                 nextState()
@@ -107,6 +110,9 @@ struct Stage4PreviewView: View {
             Text(customText ?? stage4PreviewViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    stage4ViewModel.skipText()
+                }
             
             Button(action: {
                 positiveAction()
@@ -142,10 +148,10 @@ struct Stage4PreviewView: View {
         for char in stage4PreviewViewModel.phraseSource.text {
             stage4PreviewViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
-//                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
+                try await Task.sleep(nanoseconds: stage4ViewModel.delay)
             }
         }
         stage4PreviewViewModel.printingFinished.toggle()
+        stage4ViewModel.resetDelay()
     }
 }

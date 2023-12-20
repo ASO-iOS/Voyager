@@ -144,6 +144,9 @@ struct Stage1Game1View: View {
             Text(stage1Game1ViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    stage1ViewModel.skipText()
+                }
             
             Button(action: {
                 nextState()
@@ -170,6 +173,9 @@ struct Stage1Game1View: View {
             Text(stage1Game1ViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    stage1ViewModel.skipText()
+                }
             
             Button(action: {
                 positiveAction()
@@ -206,6 +212,9 @@ struct Stage1Game1View: View {
             Text(stage1Game1ViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    stage1ViewModel.skipText()
+                }
             
             Button(action: {
                 positiveAction()
@@ -253,10 +262,11 @@ struct Stage1Game1View: View {
         for char in src {
             stage1Game1ViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: UInt64(UInt64(StorageManager.shared.textSpeed)))
+                try await Task.sleep(nanoseconds: stage1ViewModel.delay)
             }
         }
         stage1Game1ViewModel.printingFinished.toggle()
+        stage1ViewModel.resetDelay()
     }
     
 }

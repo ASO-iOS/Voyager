@@ -19,6 +19,9 @@ struct Stage1PreviewView: View {
                     Text(stage1PreviewViewModel.textOutput)
                         .gameTextStyle(.textBack)
                         .padding(.bottom, 2)
+                        .onTapGesture {
+                            stage1ViewModel.skipText()
+                        }
                     
                     Button(action: {
                         stage1ViewModel.setState(.game1)
@@ -61,9 +64,10 @@ struct Stage1PreviewView: View {
         for char in stage1PreviewViewModel.phraseSource.text {
             stage1PreviewViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
+                try await Task.sleep(nanoseconds: stage1ViewModel.delay)
             }
         }
         stage1PreviewViewModel.printingFinished.toggle()
+        stage1ViewModel.resetDelay()
     }
 }

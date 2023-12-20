@@ -66,6 +66,9 @@ struct Stage1Game3View: View {
             Text(stage1Game3ViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    stage1ViewModel.skipText()
+                }
             
             Button(action: {
                 nextState()
@@ -93,10 +96,11 @@ struct Stage1Game3View: View {
         for char in stage1Game3ViewModel.phraseSource.text {
             stage1Game3ViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
+                try await Task.sleep(nanoseconds: stage1ViewModel.delay)
             }
         }
         stage1Game3ViewModel.printingFinished.toggle()
+        stage1ViewModel.resetDelay()
     }
     
 }

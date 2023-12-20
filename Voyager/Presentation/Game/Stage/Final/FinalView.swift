@@ -276,6 +276,9 @@ struct FinalView: View {
             Text(finalViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    finalViewModel.skipText()
+                }
             Button(action: {
                 nextState()
             }, label: {
@@ -299,6 +302,9 @@ struct FinalView: View {
             Text(finalViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    finalViewModel.skipText()
+                }
             
             Button(action: {
                 positiveAction()
@@ -337,6 +343,9 @@ struct FinalView: View {
             Text(finalViewModel.textOutput)
                 .gameTextStyle(.textBack)
                 .padding(.bottom, 2)
+                .onTapGesture {
+                    finalViewModel.skipText()
+                }
             
             
             Button(action: {
@@ -380,9 +389,10 @@ struct FinalView: View {
         for char in finalViewModel.phraseSource.text {
             finalViewModel.textOutput += String(char)
             if char != " " {
-                try await Task.sleep(nanoseconds: UInt64(StorageManager.shared.textSpeed))
+                try await Task.sleep(nanoseconds: finalViewModel.delay)
             }
         }
         finalViewModel.printingFinished = true
+        finalViewModel.resetDelay()
     }
 }

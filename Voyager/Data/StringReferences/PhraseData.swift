@@ -16,7 +16,7 @@ struct PhraseData {
     var hasAnswers: Bool = false
 }
 
-enum PhraseType: String {
+enum PhraseType: String, CaseIterable {
     case common, mc, casinoPartner, sportsman, grandma, bartender, exSectarian, exFellowStudent, investMan, hippodromeMan, cryptoMan, thimblesMan, students, wealthyWoman, homelessMan, randomGuy, dem, mrn
     
     var imageName: String {

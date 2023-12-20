@@ -30,9 +30,6 @@ struct AboutUsView: View {
     
     var body: some View {
         ZStack {
-//            Image("backPreview")
-//                .resizable()
-//                .ignoresSafeArea(.all)
             VStack {
                 HStack {
                     Button(action: {
@@ -46,33 +43,25 @@ struct AboutUsView: View {
                     
                     Spacer()
                 }
-                .padding()
-                
                 Spacer()
-                
+            }.zIndex(10)
+            
+            ScrollView(showsIndicators: false) {
                 HStack {
                     Image("mc").resizable()
                         .frame(width: iconW, height: iconW)
                         .cornerRadius(40)
-                } .padding(.bottom, 10)
+                } .padding(.bottom, 10).padding(.top, 32)
                 
                 Text("Version \(bundleVers) (build \(buildVers))").font(.headline) .foregroundColor(.white)
                 
-//                Text("""
-//            Над этим невероятным приложением на протяжении долгих лет не покладая своих мышек и клавиатур работали
-//            Дизайнеры: \(getNikitas())
-//            Разработчики: Миро Милёхин, Кармелита Рамировна Зарецкая, Леонид Форс, Баро, Антон Николаевич Астахов
-//            """
-//                )      
                 Text("""
-            Над этим невероятным приложением на протяжении долгих лет не покладая своих мышек и клавиатур работали
-            Дизайнеры: Никита, Никита,  Никита, Никита,  Никита, Никита, Никита, Никита, Никита, Никита
-            Разработчики: Миро Милёхин, Кармелита Рамировна Зарецкая, Леонид Форс, Баро, Антон Николаевич Астахов
-            """
+                Над этим невероятным приложением на протяжении долгих лет не покладая своих мышек и клавиатур работали
+                Дизайнеры: Никита, Никита,  Никита, Никита,  Никита, Никита, Никита, Никита, Никита, Никита
+                Разработчики: Миро Милёхин, Кармелита Рамировна Зарецкая, Леонид Форс, Баро, Антон Николаевич Астахов
+                """
                 )
                 .gameTextStyle(.nextButton)
-                
-                
                 
                 Button {
                     
@@ -86,35 +75,35 @@ struct AboutUsView: View {
                         .cornerRadius(8)
                 } .buttonStyle(.plain)
                 
-                Spacer()
-                
-                
-                
+                ForEach(PhraseType.allCases, id: \.self) { image in
+                    if image != PhraseType.common {
+                        AboutImageView(image: image.imageName)
+                    }
+                    
+                }
             }
         }
     }
-    
-//    private func getNikitas() -> String {
-//        let nikitaCount = Int.random(in: 4...12)
-//        var nikitaArray: [Nikita] = []
-//        for i in 0...nikitaCount {
-//            let spacers = Int.random(in: 0...4)
-//        }
-//        let array = [Nikita](repeating: Nikita(spacers: Int.random(in: 0...4)), count: Int.random(in: 5...12))
-//        var result = ""
-//        array.forEach { nikita in
-//            result += "Никита"
-//            for _ in 0...nikita.spacers {
-//                result += " "
-//            }
-//            result += ","
-//        }
-//        return result
-//    }
-//    
-//    struct Nikita {
-//        let
-//        let spacers: Int
-//    }
 }
 
+struct AboutImageView: View {
+    let image: String
+    
+    @State private var isRotated = false
+    
+    var animation: Animation {
+        Animation.easeOut
+    }
+    var body: some View {
+        Image(image)
+            .resizable()
+            .scaledToFit()
+            .padding(.horizontal, 32)
+            .padding()
+            .rotationEffect(Angle.degrees(isRotated ? 360 : 0))
+            .animation(animation, value: isRotated)
+            .onTapGesture {
+                isRotated.toggle()
+            }
+    }
+}

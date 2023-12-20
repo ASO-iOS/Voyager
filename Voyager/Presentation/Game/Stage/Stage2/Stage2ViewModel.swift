@@ -13,6 +13,15 @@ final class Stage2ViewModel: ObservableObject {
     @Published var stageState = StorageManager.shared.stage2State
     @Published var background = ""
     @Published var character = ""
+    @Published var delay = UInt64(StorageManager.shared.textSpeed)
+    
+    func resetDelay() {
+        delay = UInt64(StorageManager.shared.textSpeed)
+    }
+    
+    func skipText() {
+        delay = 0
+    }
     
     func setState(_ state: GameStageState) {
         DispatchQueue.main.async {
