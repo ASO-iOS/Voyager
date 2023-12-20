@@ -47,6 +47,10 @@ struct InfoView: View {
                         appRouter.push(route: .privacy)
                     }
                     
+                    infoButtomView("Условия использования") {
+                        appRouter.push(route: .terms)
+                    }
+                    
                     infoButtomView("О нас") {
                         appRouter.push(route: .aboutUs)
                     }

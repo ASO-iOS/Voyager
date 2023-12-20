@@ -36,6 +36,8 @@ struct AppRouter: View {
                     TextSpeedView()
                 case .privacy:
                     PolicyView()
+                case .terms:
+                    PolicyView()
                 case .aboutUs:
                     AboutUsView()
                     
@@ -62,6 +64,7 @@ enum AppRouteState: NavHost {
     case textSpeed
     case textSize
     case privacy
+    case terms
     case aboutUs
 }
 enum GameStageState: String, NavHost {

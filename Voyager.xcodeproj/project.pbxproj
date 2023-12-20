@@ -38,6 +38,7 @@
 		840DE7532B2732FD00C44540 /* ShellGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DE7502B2732FD00C44540 /* ShellGameViewModel.swift */; };
 		840DE7542B2732FD00C44540 /* ShellGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DE7512B2732FD00C44540 /* ShellGameView.swift */; };
 		840DE7552B2732FD00C44540 /* CupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DE7522B2732FD00C44540 /* CupView.swift */; };
+		8412DFE32B32F8EE0035C8AA /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412DFE22B32F8EE0035C8AA /* TermsView.swift */; };
 		8413DFBF2B0F7728009AE42F /* WheelComplicatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFBE2B0F7728009AE42F /* WheelComplicatedView.swift */; };
 		8413DFC12B0F77B1009AE42F /* WheelComplicatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFC02B0F77B1009AE42F /* WheelComplicatedViewModel.swift */; };
 		8413DFC42B0FAC86009AE42F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFC32B0FAC86009AE42F /* StorageManager.swift */; };
@@ -214,6 +215,7 @@
 		840DE7502B2732FD00C44540 /* ShellGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellGameViewModel.swift; sourceTree = "<group>"; };
 		840DE7512B2732FD00C44540 /* ShellGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellGameView.swift; sourceTree = "<group>"; };
 		840DE7522B2732FD00C44540 /* CupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupView.swift; sourceTree = "<group>"; };
+		8412DFE22B32F8EE0035C8AA /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		8413DFBE2B0F7728009AE42F /* WheelComplicatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelComplicatedView.swift; sourceTree = "<group>"; };
 		8413DFC02B0F77B1009AE42F /* WheelComplicatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelComplicatedViewModel.swift; sourceTree = "<group>"; };
 		8413DFC32B0FAC86009AE42F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 			children = (
 				844827B52B2C8BE6004EF5F7 /* AboutUsView.swift */,
 				844827B72B2C8C3F004EF5F7 /* PolicyView.swift */,
+				8412DFE22B32F8EE0035C8AA /* TermsView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1463,6 +1466,7 @@
 				8448278D2B2B0158004EF5F7 /* RunningLineView.swift in Sources */,
 				844D15712B1A2AFD00896576 /* Stage2PreviewView.swift in Sources */,
 				84AC0D922B1F2ED6004FA735 /* Stage3Game2ViewModel.swift in Sources */,
+				8412DFE32B32F8EE0035C8AA /* TermsView.swift in Sources */,
 				840DE74D2B2732A500C44540 /* DiceView.swift in Sources */,
 				84AC0DAC2B1F2EFF004FA735 /* Stage4Game1View.swift in Sources */,
 				840BDB362B1E08FE004E1D7C /* Stage5Game3ViewModel.swift in Sources */,
