@@ -84,7 +84,7 @@ struct Stage2PreviewView: View {
                     .gameButtonStyle(.nextButton)
                     .opacity(stage2PreviewViewModel.printingFinished ? 0.3 : 1.0)
             })
-//            .disabled(stage2PreviewViewModel.printingFinished)
+            .disabled(stage2PreviewViewModel.printingFinished)
             .padding(.bottom)
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)

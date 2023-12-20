@@ -47,12 +47,21 @@ struct Stage3FreePlayView: View {
                         Text("Усложненная рулетка")
                             .gameButtonStyle(.nextButton)
                     }
-                    Button(action: {
-                        currentStageState.push(route: .stage4)
-                        StorageManager.shared.setCurrentStage(.stage4)
-                    }, label: {
-                        Text("Stage 4")
-                    })
+                    
+                    if BalanceManager.shared.balance > 6500 {
+                        Button {
+                            currentStageState.push(route: .stage2)
+                            StorageManager.shared.setCurrentStage(.stage2)
+                        } label: {
+                            Text("К следующей главе ->")
+                                .gameButtonStyle(.nextButton)
+                        }
+                        .padding(.top, 24)
+                    } else {
+                        Text("Чтобы перейти к следующей главе, накопите 6500 монет")
+                            .gameButtonStyle(.textBack)
+                            .padding(.top, 24)
+                    }
                 }
                 .padding(.bottom)
                 

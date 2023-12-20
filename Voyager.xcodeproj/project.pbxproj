@@ -184,6 +184,8 @@
 		84C62E182B04F39B00A11644 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C62E172B04F39B00A11644 /* SceneDelegate.swift */; };
 		84C62E1F2B04F39C00A11644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C62E1E2B04F39C00A11644 /* Assets.xcassets */; };
 		84C62E222B04F39C00A11644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C62E202B04F39C00A11644 /* LaunchScreen.storyboard */; };
+		84EE12EF2B332E3B001EB3B8 /* GameOverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE12ED2B332E3B001EB3B8 /* GameOverViewModel.swift */; };
+		84EE12F02B332E3C001EB3B8 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE12EE2B332E3B001EB3B8 /* GameOverView.swift */; };
 		84F4C3AF2B27438700485550 /* MiniGameBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C3AE2B27438700485550 /* MiniGameBackground.swift */; };
 /* End PBXBuildFile section */
 
@@ -364,6 +366,8 @@
 		84C62E1E2B04F39C00A11644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C62E212B04F39C00A11644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C62E232B04F39C00A11644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EE12ED2B332E3B001EB3B8 /* GameOverViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewModel.swift; sourceTree = "<group>"; };
+		84EE12EE2B332E3B001EB3B8 /* GameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		84F4C3AE2B27438700485550 /* MiniGameBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MiniGameBackground.swift; path = Voyager/Presentation/Base/Component/MiniGameBackground.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -799,6 +803,7 @@
 		845858A22B078D11009E8FF6 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				84EE12EC2B332E3B001EB3B8 /* GameOver */,
 				84BF52012B0B76BE00CC2D9F /* Game */,
 				84BF51FC2B0B75EA00CC2D9F /* Onboarding */,
 				84BF51E62B0B6CD000CC2D9F /* Base */,
@@ -1260,6 +1265,15 @@
 			path = Voyager;
 			sourceTree = "<group>";
 		};
+		84EE12EC2B332E3B001EB3B8 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				84EE12ED2B332E3B001EB3B8 /* GameOverViewModel.swift */,
+				84EE12EE2B332E3B001EB3B8 /* GameOverView.swift */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1369,6 +1383,7 @@
 				8448278B2B2B0158004EF5F7 /* InvestmentViewModel.swift in Sources */,
 				84AC0D932B1F2ED6004FA735 /* Stage3Game1ViewModel.swift in Sources */,
 				840DE74E2B2732A500C44540 /* DiceViewModel.swift in Sources */,
+				84EE12EF2B332E3B001EB3B8 /* GameOverViewModel.swift in Sources */,
 				844D15832B1A2B5F00896576 /* Stage2Gam4ViewModel.swift in Sources */,
 				84BF51F42B0B719300CC2D9F /* MainView.swift in Sources */,
 				84741EE32B15F98D000B8C59 /* Stage2References.swift in Sources */,
@@ -1408,6 +1423,7 @@
 				840BDB342B1E08F3004E1D7C /* Stage5Game3View.swift in Sources */,
 				8438B1F92B31BE7D006CC1A0 /* CollectionExtension.swift in Sources */,
 				844827852B2A1827004EF5F7 /* Stage1FreeplayView.swift in Sources */,
+				84EE12F02B332E3C001EB3B8 /* GameOverView.swift in Sources */,
 				8438B1FC2B31D718006CC1A0 /* StocksView.swift in Sources */,
 				848AFBF62B1F5FEF0071D4AE /* Stage1Game4ViewModel.swift in Sources */,
 				84741E742B14EBBA000B8C59 /* Stage3View.swift in Sources */,

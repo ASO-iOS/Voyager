@@ -45,12 +45,21 @@ struct Stage5FreePlayView: View {
                         Text("Акции")
                             .gameButtonStyle(.nextButton)
                     }
-                    Button(action: {
-                        currentStageState.push(route: .final)
-                        StorageManager.shared.setCurrentStage(.final)
-                    }, label: {
-                        Text("Stage 4")
-                    })
+                    
+                    if BalanceManager.shared.balance > 11000 {
+                        Button {
+                            currentStageState.push(route: .stage2)
+                            StorageManager.shared.setCurrentStage(.stage2)
+                        } label: {
+                            Text("К следующей главе ->")
+                                .gameButtonStyle(.nextButton)
+                        }
+                        .padding(.top, 24)
+                    } else {
+                        Text("Чтобы перейти к финалу, накопите 11000 монет")
+                            .gameButtonStyle(.textBack)
+                            .padding(.top, 24)
+                    }
                 }
                 .padding(.bottom)
                 
