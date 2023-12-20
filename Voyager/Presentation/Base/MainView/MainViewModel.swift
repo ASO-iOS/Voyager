@@ -13,7 +13,7 @@ final class MainViewModel: ObservableObject {
 
     
     func startNewGame() {
-        StorageManager.shared.toggleIsGame()
+        StorageManager.shared.toggleIsNewGame()
         _gameStatus = .continueGame
     }
     

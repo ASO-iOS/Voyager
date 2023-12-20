@@ -17,6 +17,10 @@ final class StorageManager {
         isFirstTimePlaying = false
     }
     
+    func resetFirstGamePlayed() {
+        isFirstTimePlaying = true
+    }
+    
     //MARK: - onboarding
     
     @AppStorage(SMKeys.ONBOARDING_PRESENTED) private(set) var onboardingPresented = false
@@ -106,25 +110,13 @@ final class StorageManager {
         }
     }
     
-    //MARK: - health
-    
-    @AppStorage(SMKeys.GAME_HEALTH) private(set) var gameHealth = 50
-    
-    func increaseHealth(_ value: Int) {
-        if gameHealth < 100 {
-            gameHealth += value
-        }
-    }
-    
-    func reduceHealth(_ value: Int) {
-        if gameHealth > 0 {
-            gameHealth -= value
-        }
+    func resetKarma() {
+        gameKarma = 50
     }
     
     @AppStorage(SMKeys.IS_NEW_GAME) private(set) var isNewGame = true
     
-    func toggleIsGame() {
+    func toggleIsNewGame() {
         isNewGame.toggle()
     }
     
@@ -170,7 +162,7 @@ class BalanceManager: ObservableObject {
     }
     
     func reset() {
-        gameCash = 1000000
+        gameCash = 0
         balance = gameCash
     }
 }

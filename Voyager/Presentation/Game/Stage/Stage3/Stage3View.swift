@@ -24,20 +24,8 @@ struct Stage3View: View {
                     .scaledToFit()
                     .padding(.horizontal)
             }
-            VStack {
-                HStack {
-                    Button(action: {
-                        appRouter.pop()
-                    }, label: {
-                        Image("backArrow")
-                            .resizable()
-                            .frame(width: 12, height: 20)
-                            .padding()
-                    })
-                    Spacer()
-                    BalanceView()
-                }
-                Spacer()
+            ArrowBalanceView {
+                appRouter.pop()
             }
             switch stageViewModel.stageState {
             case .preview:

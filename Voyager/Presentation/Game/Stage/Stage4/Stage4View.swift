@@ -12,7 +12,7 @@ struct Stage4View: View {
     @EnvironmentObject var stageViewModel: Stage4ViewModel
     @EnvironmentObject var currentStageState: NavRouter<CurrentStageState>
     @EnvironmentObject var appRouter: NavRouter<AppRouteState>
-//    @EnvironmentObject var appController: ApplicationController
+    
     var body: some View {
         ZStack {
             Image(stageViewModel.background)
@@ -24,20 +24,8 @@ struct Stage4View: View {
                     .scaledToFit()
                     .padding(.horizontal)
             }
-            VStack {
-                HStack {
-                    Button(action: {
-                        appRouter.pop()
-                    }, label: {
-                        Image("backArrow")
-                            .resizable()
-                            .frame(width: 12, height: 20)
-                            .padding()
-                    })
-                    Spacer()
-                    BalanceView()
-                }
-                Spacer()
+            ArrowBalanceView {
+                appRouter.pop()
             }
             .zIndex(10)
             switch stageViewModel.stageState {

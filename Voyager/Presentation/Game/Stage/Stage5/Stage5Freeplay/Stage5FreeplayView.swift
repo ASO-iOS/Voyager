@@ -46,8 +46,8 @@ struct Stage5FreePlayView: View {
                             .gameButtonStyle(.nextButton)
                     }
                     Button(action: {
-                        currentStageState.push(route: .stage5)
-                        StorageManager.shared.setCurrentStage(.stage5)
+                        currentStageState.push(route: .final)
+                        StorageManager.shared.setCurrentStage(.final)
                     }, label: {
                         Text("Stage 4")
                     })

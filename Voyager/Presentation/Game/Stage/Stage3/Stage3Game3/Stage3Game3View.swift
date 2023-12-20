@@ -57,13 +57,13 @@ struct Stage3Game3View: View {
         }
         .onAppear {
             stage3ViewModel.setBackImages(
-                background: "back",
+                background: "back8",
                 character: stage3Game3ViewModel.phraseSource.type.imageName
             )
         }
         .onChange(of: stage3Game3ViewModel.state) { _ in
             stage3ViewModel.setBackImages(
-                background: "back",
+                background: "back0",
                 character: stage3Game3ViewModel.phraseSource.type.imageName
             )
         }

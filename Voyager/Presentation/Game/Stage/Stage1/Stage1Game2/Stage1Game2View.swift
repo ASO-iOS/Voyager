@@ -88,13 +88,13 @@ struct Stage1Game2View: View {
         }
         .onAppear {
             stage1ViewModel.setBackImages(
-                background: "back",
+                background: "back7",
                 character: stage1Game2ViewModel.phraseSource.type.imageName
             )
         }
         .onChange(of: stage1Game2ViewModel.state) { _ in
             stage1ViewModel.setBackImages(
-                background: "back",
+                background: "back5",
                 character: stage1Game2ViewModel.phraseSource.type.imageName
             )
         }

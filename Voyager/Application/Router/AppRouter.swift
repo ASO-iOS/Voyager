@@ -40,6 +40,8 @@ struct AppRouter: View {
                     PolicyView()
                 case .aboutUs:
                     AboutUsView()
+                case .shop:
+                    ShopView()
                     
                 default:
                     MainView()
@@ -66,6 +68,7 @@ enum AppRouteState: NavHost {
     case privacy
     case terms
     case aboutUs
+    case shop
 }
 enum GameStageState: String, NavHost {
     case preview
@@ -82,6 +85,7 @@ enum CurrentStageState: String, NavHost {
     case stage3
     case stage4
     case stage5
+    case final
     
     var value: String {
         switch self {
@@ -95,6 +99,8 @@ enum CurrentStageState: String, NavHost {
             return "Глава 4"
         case .stage5:
             return "Глава 5"
+        case .final:
+            return "Финал"
         }
     }
 }

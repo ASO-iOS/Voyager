@@ -54,13 +54,13 @@ struct Stage5PreviewView: View {
         }
         .onAppear {
             stage5ViewModel.setBackImages(
-                background: "back",
+                background: "back17",
                 character: stage5PreviewViewModel.phraseSource.type.imageName
             )
         }
         .onChange(of: stage5PreviewViewModel.state) { _ in
             stage5ViewModel.setBackImages(
-                background: "back",
+                background: "back17",
                 character: stage5PreviewViewModel.phraseSource.type.imageName
             )
         }

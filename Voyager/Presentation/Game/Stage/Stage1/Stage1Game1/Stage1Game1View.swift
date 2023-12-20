@@ -41,11 +41,16 @@ struct Stage1Game1View: View {
             case .text6:
                 stageViewWithAnswers(src: stage1Game1ViewModel.phraseSource.text, positiveAction: {
                     stage1Game1ViewModel.crossPut = true
+                    StorageManager.shared.reduceKarma(5)
+                    BalanceManager.shared.changeBalance(by: 250, gameResult: .win)
                     stage1Game1ViewModel.nextText(.text7)
                 }, negativeAction: {
                     stage1Game1ViewModel.crossPut = false
+                    StorageManager.shared.increaseKarma(10)
+                    BalanceManager.shared.changeBalance(by: 500, gameResult: .win)
                     stage1Game1ViewModel.nextText(.text7)
                 })
+
             case .text7:
                 stageView(src: stage1Game1ViewModel.crossPut ? stage1Game1ViewModel.phraseSource.answerPositive ?? "" : stage1Game1ViewModel.phraseSource.answerNegative ?? "") {
                     stage1Game1ViewModel.nextText(.game)
@@ -122,13 +127,13 @@ struct Stage1Game1View: View {
         }
         .onChange(of: stage1Game1ViewModel.state) { _ in
             stage1ViewModel.setBackImages(
-                background: "back",
+                background: "back7",
                 character: stage1Game1ViewModel.phraseSource.type.imageName
             )
         }
         .onAppear {
             stage1ViewModel.setBackImages(
-                background: "back",
+                background: "back7",
                 character: stage1Game1ViewModel.phraseSource.type.imageName
             )
         }

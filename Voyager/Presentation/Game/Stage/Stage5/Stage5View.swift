@@ -24,20 +24,8 @@ struct Stage5View: View {
                     .scaledToFit()
                     .padding(.horizontal)
             }
-            VStack {
-                HStack {
-                    Button(action: {
-                        appRouter.pop()
-                    }, label: {
-                        Image("backArrow")
-                            .resizable()
-                            .frame(width: 12, height: 20)
-                            .padding()
-                    })
-                    Spacer()
-                    BalanceView()
-                }
-                Spacer()
+            ArrowBalanceView {
+                appRouter.pop()
             }
             .zIndex(10)
             switch stageViewModel.stageState {

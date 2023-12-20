@@ -27,9 +27,11 @@ struct GameView: View {
                 case .stage4:
                     Stage4View()
                         .environmentObject(Stage4ViewModel())
-                default:
+                case .stage5:
                     Stage5View()
                         .environmentObject(Stage5ViewModel())
+                default:
+                    FinalView()
                 }
             }
             .environmentObject(currentStageState)

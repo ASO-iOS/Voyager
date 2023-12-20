@@ -25,7 +25,7 @@ struct TextSizeView: View {
                     }, label: {
                         Image("backArrow")
                             .resizable()
-                            .frame(width: 12, height: 20)
+                            .frame(width: 20, height: 30)
                             .padding()
                     })
                     

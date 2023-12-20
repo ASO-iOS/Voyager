@@ -39,6 +39,11 @@
 		840DE7542B2732FD00C44540 /* ShellGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DE7512B2732FD00C44540 /* ShellGameView.swift */; };
 		840DE7552B2732FD00C44540 /* CupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DE7522B2732FD00C44540 /* CupView.swift */; };
 		8412DFE32B32F8EE0035C8AA /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412DFE22B32F8EE0035C8AA /* TermsView.swift */; };
+		8412DFE52B33015F0035C8AA /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412DFE42B33015F0035C8AA /* FinalView.swift */; };
+		8412DFE72B3301680035C8AA /* FinalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412DFE62B3301680035C8AA /* FinalViewModel.swift */; };
+		8412DFEB2B33246D0035C8AA /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412DFE92B33246D0035C8AA /* ShopView.swift */; };
+		8412DFEC2B33246D0035C8AA /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412DFEA2B33246D0035C8AA /* ShopViewModel.swift */; };
+		8412DFEE2B332A8A0035C8AA /* Arrow+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412DFED2B332A8A0035C8AA /* Arrow+Balance.swift */; };
 		8413DFBF2B0F7728009AE42F /* WheelComplicatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFBE2B0F7728009AE42F /* WheelComplicatedView.swift */; };
 		8413DFC12B0F77B1009AE42F /* WheelComplicatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFC02B0F77B1009AE42F /* WheelComplicatedViewModel.swift */; };
 		8413DFC42B0FAC86009AE42F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413DFC32B0FAC86009AE42F /* StorageManager.swift */; };
@@ -169,7 +174,6 @@
 		84BF51F42B0B719300CC2D9F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF51F32B0B719300CC2D9F /* MainView.swift */; };
 		84BF51F62B0B719D00CC2D9F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF51F52B0B719D00CC2D9F /* MainViewModel.swift */; };
 		84BF51F92B0B71FB00CC2D9F /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF51F82B0B71FB00CC2D9F /* ApplicationController.swift */; };
-		84BF51FB2B0B725D00CC2D9F /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF51FA2B0B725D00CC2D9F /* ViewModelFactory.swift */; };
 		84BF51FE2B0B760A00CC2D9F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF51FD2B0B760A00CC2D9F /* OnboardingView.swift */; };
 		84BF52002B0B761300CC2D9F /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF51FF2B0B761300CC2D9F /* OnboardingViewModel.swift */; };
 		84BF52032B0B772400CC2D9F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF52022B0B772400CC2D9F /* InfoView.swift */; };
@@ -216,6 +220,11 @@
 		840DE7512B2732FD00C44540 /* ShellGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellGameView.swift; sourceTree = "<group>"; };
 		840DE7522B2732FD00C44540 /* CupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupView.swift; sourceTree = "<group>"; };
 		8412DFE22B32F8EE0035C8AA /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		8412DFE42B33015F0035C8AA /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
+		8412DFE62B3301680035C8AA /* FinalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewModel.swift; sourceTree = "<group>"; };
+		8412DFE92B33246D0035C8AA /* ShopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		8412DFEA2B33246D0035C8AA /* ShopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		8412DFED2B332A8A0035C8AA /* Arrow+Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrow+Balance.swift"; sourceTree = "<group>"; };
 		8413DFBE2B0F7728009AE42F /* WheelComplicatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelComplicatedView.swift; sourceTree = "<group>"; };
 		8413DFC02B0F77B1009AE42F /* WheelComplicatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelComplicatedViewModel.swift; sourceTree = "<group>"; };
 		8413DFC32B0FAC86009AE42F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -343,7 +352,6 @@
 		84BF51F32B0B719300CC2D9F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		84BF51F52B0B719D00CC2D9F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		84BF51F82B0B71FB00CC2D9F /* ApplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
-		84BF51FA2B0B725D00CC2D9F /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		84BF51FD2B0B760A00CC2D9F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		84BF51FF2B0B761300CC2D9F /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		84BF52022B0B772400CC2D9F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -542,6 +550,15 @@
 			path = ShellGame;
 			sourceTree = "<group>";
 		};
+		8412DFE82B33246D0035C8AA /* ShopView */ = {
+			isa = PBXGroup;
+			children = (
+				8412DFE92B33246D0035C8AA /* ShopView.swift */,
+				8412DFEA2B33246D0035C8AA /* ShopViewModel.swift */,
+			);
+			path = ShopView;
+			sourceTree = "<group>";
+		};
 		8413DFBD2B0F770D009AE42F /* WheelComplicated */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +626,8 @@
 		8438B1FD2B31E216006CC1A0 /* Final */ = {
 			isa = PBXGroup;
 			children = (
+				8412DFE42B33015F0035C8AA /* FinalView.swift */,
+				8412DFE62B3301680035C8AA /* FinalViewModel.swift */,
 			);
 			path = Final;
 			sourceTree = "<group>";
@@ -808,7 +827,6 @@
 		845858AB2B078DDE009E8FF6 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				84BF51F72B0B71AD00CC2D9F /* ViewModelFactory */,
 				845858AC2B078DED009E8FF6 /* Router */,
 				84C62E152B04F39B00A11644 /* AppDelegate.swift */,
 				84C62E172B04F39B00A11644 /* SceneDelegate.swift */,
@@ -1111,6 +1129,7 @@
 				84F4C3AE2B27438700485550 /* MiniGameBackground.swift */,
 				84B320E32B2765F7005CC51F /* GameButtonModifier.swift */,
 				8448279E2B2B3FFE004EF5F7 /* BalanceView.swift */,
+				8412DFED2B332A8A0035C8AA /* Arrow+Balance.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1143,6 +1162,7 @@
 		84BF51E62B0B6CD000CC2D9F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				8412DFE82B33246D0035C8AA /* ShopView */,
 				84B320E22B2765E8005CC51F /* Component */,
 				84BF51EE2B0B6F1400CC2D9F /* InfoView */,
 				84BF51ED2B0B6F0C00CC2D9F /* SettingsView */,
@@ -1179,14 +1199,6 @@
 				84BF52042B0B772F00CC2D9F /* InfoViewModel.swift */,
 			);
 			path = InfoView;
-			sourceTree = "<group>";
-		};
-		84BF51F72B0B71AD00CC2D9F /* ViewModelFactory */ = {
-			isa = PBXGroup;
-			children = (
-				84BF51FA2B0B725D00CC2D9F /* ViewModelFactory.swift */,
-			);
-			path = ViewModelFactory;
 			sourceTree = "<group>";
 		};
 		84BF51FC2B0B75EA00CC2D9F /* Onboarding */ = {
@@ -1360,7 +1372,6 @@
 				844D15832B1A2B5F00896576 /* Stage2Gam4ViewModel.swift in Sources */,
 				84BF51F42B0B719300CC2D9F /* MainView.swift in Sources */,
 				84741EE32B15F98D000B8C59 /* Stage2References.swift in Sources */,
-				84BF51FB2B0B725D00CC2D9F /* ViewModelFactory.swift in Sources */,
 				848AFBF22B1F5FD70071D4AE /* Stage1Game3ViewModel.swift in Sources */,
 				8448277C2B29EE18004EF5F7 /* TwentyOneView.swift in Sources */,
 				848AFBF02B1F5FCE0071D4AE /* Stage1Game3View.swift in Sources */,
@@ -1393,6 +1404,7 @@
 				840BDB322B1E08E6004E1D7C /* Stage5Game2ViewModel.swift in Sources */,
 				840BDB2C2B1E080A004E1D7C /* Stage5Game1View.swift in Sources */,
 				844827B12B2C795A004EF5F7 /* CharityLoadingView.swift in Sources */,
+				8412DFEE2B332A8A0035C8AA /* Arrow+Balance.swift in Sources */,
 				840BDB342B1E08F3004E1D7C /* Stage5Game3View.swift in Sources */,
 				8438B1F92B31BE7D006CC1A0 /* CollectionExtension.swift in Sources */,
 				844827852B2A1827004EF5F7 /* Stage1FreeplayView.swift in Sources */,
@@ -1463,6 +1475,7 @@
 				84BF51F22B0B718800CC2D9F /* SettingsViewModel.swift in Sources */,
 				84741E7C2B14EBE8000B8C59 /* Stage5View.swift in Sources */,
 				844D157D2B1A2B4300896576 /* Stage2Game3View.swift in Sources */,
+				8412DFE52B33015F0035C8AA /* FinalView.swift in Sources */,
 				8448278D2B2B0158004EF5F7 /* RunningLineView.swift in Sources */,
 				844D15712B1A2AFD00896576 /* Stage2PreviewView.swift in Sources */,
 				84AC0D922B1F2ED6004FA735 /* Stage3Game2ViewModel.swift in Sources */,
@@ -1470,6 +1483,7 @@
 				840DE74D2B2732A500C44540 /* DiceView.swift in Sources */,
 				84AC0DAC2B1F2EFF004FA735 /* Stage4Game1View.swift in Sources */,
 				840BDB362B1E08FE004E1D7C /* Stage5Game3ViewModel.swift in Sources */,
+				8412DFE72B3301680035C8AA /* FinalViewModel.swift in Sources */,
 				8413DFCA2B0FAE2B009AE42F /* Stage1View.swift in Sources */,
 				848AFC0A2B2090920071D4AE /* OriginalSportBettingViewModel.swift in Sources */,
 				84BF52092B0B7B9B00CC2D9F /* WheelView.swift in Sources */,
@@ -1482,9 +1496,11 @@
 				844827B82B2C8C3F004EF5F7 /* PolicyView.swift in Sources */,
 				844827A72B2B6CE8004EF5F7 /* CharityView.swift in Sources */,
 				84AC0D982B1F2ED6004FA735 /* Stage3PreviewView.swift in Sources */,
+				8412DFEB2B33246D0035C8AA /* ShopView.swift in Sources */,
 				84741E672B14D4CD000B8C59 /* AppRouter.swift in Sources */,
 				84BF51FE2B0B760A00CC2D9F /* OnboardingView.swift in Sources */,
 				840BDB282B1E07EA004E1D7C /* Stage5PreviewView.swift in Sources */,
+				8412DFEC2B33246D0035C8AA /* ShopViewModel.swift in Sources */,
 				840BDB382B1E090A004E1D7C /* Stage5Game4View.swift in Sources */,
 				840DE7542B2732FD00C44540 /* ShellGameView.swift in Sources */,
 				844827B32B2C7964004EF5F7 /* CharityResultView.swift in Sources */,

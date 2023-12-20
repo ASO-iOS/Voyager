@@ -18,17 +18,12 @@ struct MainView: View {
         
         ZStack {
             
-//            Image("backPreview")
-//                .resizable()
-//                .ignoresSafeArea(.all)
             VStack {
                 HStack {
                     if mainViewModel._gameStatus == .continueGame {
                         Text(currentStageState.route?.value ?? "")
                             .foregroundColor(.white)
                             .font(.system(size: 32).monospaced().weight(.black))
-//                            .padding(.leading)
-//                            .padding(.top, 6)
                     }
                         
                     Spacer()
@@ -64,13 +59,6 @@ struct MainView: View {
                     appRouter.push(route: .settings)
                 })
                 
-                Button(action: {
-                    BalanceManager.shared.changeBalance(by: 10000, gameResult: .win)
-                }, label: {
-                    Text("Button")
-                    
-                })
-                
                 .padding(.bottom, 100)
             }
         }
@@ -97,7 +85,7 @@ struct MainView: View {
 
 
 //import UIPilot
-//
+
 //struct MainView: View {
 ////    @EnvironmentObject var pilot: UIPilot<String>
 //    @EnvironmentObject var mainViewModel: MainViewModel
@@ -146,6 +134,14 @@ struct MainView: View {
 //            }, label: {
 //                Text("Stage5 fp")
 //            })
+//            Button(action: {
+//                StorageManager.shared.setCurrentStage(.final)
+//                currentStageState.push(route: .final)
+//                appRouter.push(route: .game)
+//            }, label: {
+//                Text("Final")
+//            })
+//            
 //            Button(action: {
 //
 //                appRouter.push(route: .game)
