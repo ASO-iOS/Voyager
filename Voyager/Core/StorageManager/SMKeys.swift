@@ -27,6 +27,7 @@ struct SMKeys {
     static let GAME_HEALTH = "gameHealth"
     
     static let GAME_CASH = "gameCash"
+    static let LOW_BALANCE_0 = "lowBalance0"
     
     static let GAME_TEXT_SIZE = "gameTextSize"
     

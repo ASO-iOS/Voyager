@@ -47,7 +47,7 @@ struct SettingsView: View {
                 }
                 
                 
-                settingsButtomView("Сброс прогресса (частичный)") {
+                settingsButtomView("Сброс прогресса") {
                     showingResetAlert = true
                 } .alert(isPresented: $showingResetAlert, content: {
                     Alert(title: Text("Сброс прогресса"), message: Text("Вы точно хотите очистить весь прогресс игры и начать сначала? (Деньги при этом сохранятся"), primaryButton: .destructive(Text("Да, я уверен"), action: {
@@ -55,7 +55,7 @@ struct SettingsView: View {
                     }), secondaryButton: .cancel())
                 })
                 
-                settingsButtomView("Сброс прогресса (полный)") {
+                settingsButtomView("Сброс прогресса и валюты") {
                     showingFullResetAlert = true
                 } .alert(isPresented: $showingFullResetAlert, content: {
                     Alert(title: Text("Полный сброс прогресса"), message: Text("Вы точно хотите очистить весь прогресс игры и начать сначала? (Деньги при этом так же будут утеряны"), primaryButton: .destructive(Text("Да, я уверен"), action: {
@@ -79,6 +79,7 @@ struct SettingsView: View {
         StorageManager.shared.resetKarma()
         StorageManager.shared.toggleIsNewGame()
         StorageManager.shared.resetFirstGamePlayed()
+        BalanceManager.shared.lowBalance = false
         currentStageState.route = .stage1
         
         

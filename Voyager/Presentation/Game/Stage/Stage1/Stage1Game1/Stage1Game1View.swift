@@ -59,7 +59,7 @@ struct Stage1Game1View: View {
                 ShellGameView(completion: {
                     stage1ViewModel.setState(.game2)
                 })
-                .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.7))
+                .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.2))
             case .textSide0:
                 stageView(src: stage1Game1ViewModel.phraseSource.text) {
                     stage1Game1ViewModel.nextText(.textSide1)

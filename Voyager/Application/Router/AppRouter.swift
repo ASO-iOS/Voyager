@@ -42,6 +42,8 @@ struct AppRouter: View {
                     AboutUsView()
                 case .shop:
                     ShopView()
+                case .gameOver:
+                    GameOverView()
                     
                 default:
                     MainView()
@@ -69,6 +71,7 @@ enum AppRouteState: NavHost {
     case terms
     case aboutUs
     case shop
+    case gameOver
 }
 enum GameStageState: String, NavHost {
     case preview

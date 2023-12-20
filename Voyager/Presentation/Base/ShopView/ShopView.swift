@@ -19,7 +19,7 @@ struct ShopView: View {
                 
                 HStack {
                     Button(action: {
-                        appRouter.pop()
+                        appRouter.popToRoot()
                     }, label: {
                         Image("backArrow")
                             .resizable()

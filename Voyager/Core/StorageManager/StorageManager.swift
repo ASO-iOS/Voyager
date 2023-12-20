@@ -138,13 +138,16 @@ enum GameResultImpl {
 }
 
 class BalanceManager: ObservableObject {
-    @AppStorage(SMKeys.GAME_CASH) private(set) var gameCash = 50
+    @AppStorage(SMKeys.GAME_CASH) private(set) var gameCash = 0
+    @AppStorage(SMKeys.LOW_BALANCE_0) private(set) var lowBalance0 = false
     @Published var balance = 0
+    @Published var lowBalance = false
     
     static let shared = BalanceManager()
     
     private init() {
         balance = gameCash
+        lowBalance = lowBalance0
     }
     
     func changeBalance(by value: Int, gameResult: GameResultImpl) {
@@ -157,6 +160,9 @@ class BalanceManager: ObservableObject {
             if temp - value >= 0 {
                 balance -= value
                 gameCash = balance
+            } else {
+                lowBalance.toggle()
+                lowBalance0 = lowBalance
             }
         }
     }
@@ -164,5 +170,11 @@ class BalanceManager: ObservableObject {
     func reset() {
         gameCash = 0
         balance = gameCash
+        resetLowBalance()
+    }
+    
+    func resetLowBalance() {
+        lowBalance = false
+        lowBalance0 = lowBalance
     }
 }

@@ -131,6 +131,8 @@ struct Stage1ThimblesReference: PhraseDelegate {
     }
 }
 
+//import Foundation
+//import SwiftUI
 
 
 struct Stage1LotteryReference: PhraseDelegate {
@@ -160,12 +162,12 @@ struct Stage1LotteryReference: PhraseDelegate {
     
     private let textSide0 = PhraseData(
         text: "На подходах к светящимся ларёчкам ты заметил сидящего на широкой картонке поверх асфальта. Он производил впечатление обессилевшего до такой степени человека, что едва мог поднять руки.",
-        type: .common
+        type: .homelessMan
     )
     
     private let textSide1 = PhraseData(
         text: "Он заметил твоё внимание и ответил просящим взглядом обречённого на голодную смерть. Очевидно, что в таком случае он был бы рад любой помощи, и ты мог бы помочь даже куском хлеба, но вот стоило ли разбазариваться на это, если ещё в начале дня ты сам был в его положении?",
-        type: .common
+        type: .homelessMan
     )
     
     private let textSide2 = PhraseData(

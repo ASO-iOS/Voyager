@@ -37,5 +37,21 @@ struct BalanceView: View {
             }
             
         }
+        .onReceive(displayCash.$lowBalance, perform: { value in
+            if value && appRouter.route != .main {
+                appRouter.push(route: .gameOver)
+            }
+        })
+//        .onAppear {
+//            print(#function)
+//            if displayCash.lowBalance {
+//                print("balance 0")
+//            }
+//        }
+//        .onChange(of: BalanceManager.shared.$lowBalance) { newValue in
+//            if newValue {
+//                print("balance 0")
+//            }
+//        }
     }
 }
