@@ -66,8 +66,9 @@ struct DiceView: View {
                             completion()
                         }, label: {
                             Text("Нет")
+                                .gameButtonStyle(.nextButton)
                         })
-                        .gameButtonStyle(.nextButton)
+                        
                     }
                     .padding(.bottom, 6)
                 } else {

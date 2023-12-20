@@ -76,10 +76,65 @@ struct Stage1ThimblesReference: PhraseDelegate {
         hasAnswers: true
     )
     
+    
+    private let textSide0 = PhraseData(
+        text: "Положительный ход игры затянул до такой степени, что ты совсем перестал смотреть по сторонам. Сбить фокус удалось девушке в одеянии кричащего цвета. Провожая её глазами, ты заметил, что, когда она не глядя взялась вынимать свой длинный телефон из сумочки, что-то плоское зацепилось и бесшумно упало.",
+        type: .common
+    )
+    
+    private let textSide1 = PhraseData(
+        text: "Это был винтажный бумажник с купюрами без отделений под карты банков. Был велик соблазн забрать всё себе и вложить в игровой оборот, чтобы заработать не только “на поесть” на сегодня. Оставался вариант догнать незнакомку и рыцарски вернуть ей пропажу. Догнать её совершенно не сложно, но вот, всё таки, стоит ли…",
+        type: .common
+    )
+    
+    private let textSide2 = PhraseData(
+        text: "Как поступить?",
+        type: .common,
+        answerPositive: "Вернуть кошелек.",
+        answerNegative: "Забрать себе.",
+        answerNeutral: "Игра важнее всего! Бездействовать.",
+        hasAnswers: true
+    )
+
+    
+    private let textSideNegative = PhraseData(
+        text: "Кричащий внешний вид девушки не так ослеплял тебя, как потребность насытиться хотя бы какой-нибудь пищей. По внешнему виду прохожей было понятно, что денег у неё на всё более чем достаточно, чего нельзя сказать о тебе. Так что ты присвоил находку, получив все вложения.",
+        type: .common
+    )
+    
+    
+    private let textSideNeutral = PhraseData(
+        text: "Ты решил, что нельзя отходить от игры, пока тебе так везёт. Догнать даму, чтобы отдать бумажник, или нагло присвоить его себе – пусть это решает кто-нибудь другой, кто-нибудь из проигравшихся, находящихся рядом теперь без дела.",
+        type: .common
+    )
+    
+    private let textSidePositive0 = PhraseData(
+        text: "- Здравствуйте, я не даю милостыню.",
+        type: .wealthyWoman
+    )
+    private let textSidePositive1 = PhraseData(
+        text: "- Я и не прошу. Вот ваш кошелёк, не теряйте больше, будьте аккуратны.",
+        type: .mc
+    )
+    private let textSidePositive2 = PhraseData(
+        text: "- А-ха-ха, и я в это должна поверить? Вы украли мой бумажник и пытались затеряться в толпе таких же бездомных, но совесть не дала вам покоя. И теперь вы решили снять с себя подозрение, выдумав эту легенду.",
+        type: .wealthyWoman
+    )
+    private let textSidePositive3 = PhraseData(
+        text: "- Полагаю, мне смысла нет что-либо доказывать. Раз уж вы решили, что я покаялся, прошу не писать на меня заявление.",
+        type: .mc
+    )
+    private let textSidePositive4 = PhraseData(
+        text: "- Да будет вам, я же просто подначиваю. Я вам верю, спасибо за находку. Вот вам приз, всё равно эти купюры уже совсем ветхие.",
+        type: .wealthyWoman
+    )
+    
     var phrases: [PhraseData] {
-        return [text0, text1, text2, text3, text4, text5, text6, text7]
+        return [text0, text1, text2, text3, text4, text5, text6, text7, textSide0, textSide1, textSide2, textSideNegative, textSideNeutral, textSidePositive0, textSidePositive1, textSidePositive2, textSidePositive3, textSidePositive4]
     }
 }
+
+
 
 struct Stage1LotteryReference: PhraseDelegate {
     
@@ -106,9 +161,58 @@ struct Stage1LotteryReference: PhraseDelegate {
         type: .common
     )
     
+    private let textSide0 = PhraseData(
+        text: "На подходах к светящимся ларёчкам ты заметил сидящего на широкой картонке поверх асфальта. Он производил впечатление обессилевшего до такой степени человека, что едва мог поднять руки.",
+        type: .common
+    )
+    
+    private let textSide1 = PhraseData(
+        text: "Он заметил твоё внимание и ответил просящим взглядом обречённого на голодную смерть. Очевидно, что в таком случае он был бы рад любой помощи, и ты мог бы помочь даже куском хлеба, но вот стоило ли разбазариваться на это, если ещё в начале дня ты сам был в его положении?",
+        type: .common
+    )
+    
+    private let textSide2 = PhraseData(
+        text: "Как поступишь?",
+        type: .homelessMan,
+        answerPositive: "Помочь",
+        answerNegative: "Я что похож на благотворителя?",
+        answerNeutral: "Пройти мимо",
+        hasAnswers: true
+    )
+    
+    private let textSidePositive = PhraseData(
+        text: "Сострадание победило, ты решил купить ему буханку ржаного с маленькой бутылкой воды. Счастью не было предела, однако сильно долго радоваться твой новый друг не стал, так как есть хотелось уж слишком сильно.",
+        type: .homelessMan
+    )
+    
+    private let textSideNeutral = PhraseData(
+        text: "Разве можно помочь всем на свете? Тебя сейчас просто не до того. Обязательно поможешь кому-нибудь, как станешь богатым и свободным от экстремального выживания – так думал ты, проходя мимо, сохраняя нейтралитет и безучастность.",
+        type: .homelessMan
+    )
+    
+    private let textSideNegative0 = PhraseData(
+        text: "Почему кто-то должен получать всё бесплатно, пока ты карабкаешься с самого дна? Так ты думал, отвечая попрошайке, что за бездействие он ничего не получит – ни еды, ни воды, ни работы, ни сострадания.",
+        type: .common
+    )
+    
+    private let textSideNegative1 = PhraseData(
+        text: "Вопреки ожиданиям, он ответил, что у него всё это уже было. Он пытался наполнить жизнь благами и смыслом за счёт своего труда, но, когда успех уже начал приносить плоды, его бизнес отняли рейдеры, а его документы сожгли.",
+        type: .homelessMan
+    )
+    
+    private let textSideNegative2 = PhraseData(
+        text: "Так что теперь он поддерживался на плаву исключительно по воле случая, в зависимости от того, сколько добрых людей он повстречает за день. Он решил, что вы похожи, но, по всей видимости, он ошибся.",
+        type: .homelessMan
+    )
+    
+    private let textSideNegative3 = PhraseData(
+        text: "Ты ведь тоже был на грани гибели, и тебе тоже помогла зацепиться воля случая. Но вот стоило ли разбазаривать полученный кредит судьбы на себе подобных? Сложно было засыпать с такими мыслями в голове,.. по крайней мере первые несколько раз.",
+        type: .common
+    )
+    
     
     var phrases: [PhraseData] {
-        return [text0, text1, text2, text3]
+        return [text0, text1, text2, text3, textSide0, textSide1, textSide2, textSidePositive, textSideNeutral, textSideNegative0, textSideNegative1, textSideNegative2, textSideNegative3]
     }
 }
 

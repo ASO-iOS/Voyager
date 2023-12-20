@@ -17,13 +17,15 @@ final class Stage3Game1ViewModel: ObservableObject {
     @Published var crossPut = false
     
     enum Stage3GameState {
-        case text0, text1, text2, text3, text4, text5, game
+        case text0, text1, text2, text3, text4, text5, game, textSide0, textSide1, textSide2, textSide3, textSideNegative, textSideNeutral, textSidePositive
     }
     
     func nextText(_ state: Stage3GameState) {
         if index < Stage3HippodromeReference.shared.phrases.count - 1 {
             self.state = state
-            index += 1
+            if state != .game {
+                index += 1
+            }
             textOutput = ""
             phraseSource = Stage3HippodromeReference.shared.phrases[index]
         } else {

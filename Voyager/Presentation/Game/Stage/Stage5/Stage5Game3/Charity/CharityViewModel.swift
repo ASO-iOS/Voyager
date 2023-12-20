@@ -11,6 +11,17 @@ final class CharityViewModel: ObservableObject {
     @Published private(set) var state: CharityState = .selectShesterka
     
     @Published var amount = 0
+    @Published var currentCharity: CharityData = .empty
+    
+    func setState(_ s: CharityState) {
+        state = s
+    }
+    
+    @Published var isWin = false
+    @Published var textOutput = ""
+    @Published var gameFinished = false
+    
+    
     var charityArray = [
         CharityData(
             name: "Начинающий футболист",
@@ -50,7 +61,7 @@ final class CharityViewModel: ObservableObject {
             failureDescription: CharityDataDescription(
                 description: "Сценарий из мыльной оперы: многодетная мама оказывается актрисой с выдуманными детьми. Аудитория аплодирует стоя.",
                 resultText: "Бывают же на свете не честные люди, вас просто обманули, а детей то никаких и нет..."),
-            profitPercentage: 6
+            profitPercentage: 26
         ),
         CharityData(
             name: "Немой певец",
@@ -278,6 +289,10 @@ final class CharityViewModel: ObservableObject {
         
     ].shuffled()
     
+    var currentArray: ArraySlice<CharityViewModel.CharityData> {
+        return charityArray.choose(4)
+    }
+    
     let amountArray = [1000, 2000, 5000, 10000]
     
     enum CharityState {
@@ -291,30 +306,21 @@ final class CharityViewModel: ObservableObject {
         case profit, failure
     }
     
-    func resetGame() {
-        amount = 0
-        charityArray = charityArray.shuffled()
-        state = .selectShesterka
-    }
-    
-    func setSelectAmount() {
-        state = .selectAmount
-    }
-    
-    func setLoading() {
-        state = .loading
+    func calculate() {
+        isWin = Int.random(in: 0...100) <= currentCharity.profitPercentage
     }
     
     func setResult() {
+        textOutput = ""
         state = .result
     }
     
-//    func start() {
-//        DispatchQueue.main.asyncAfter(deadline: <#T##DispatchTime#>, execute: <#T##DispatchWorkItem#>)
-//    }
-    
-    func getResult() {
-        
+    func resetGame() {
+        textOutput = ""
+        isWin = false
+        gameFinished = false
+        amount = 0
+        state = .selectShesterka
     }
     
     struct CharityDataDescription {
@@ -322,11 +328,14 @@ final class CharityViewModel: ObservableObject {
         var resultText: String
     }
 
-    struct CharityData {
+    struct CharityData: Identifiable {
+        var id = UUID().uuidString
         var name: String
         var profitDescription: CharityDataDescription
         var failureDescription: CharityDataDescription
         var profitPercentage: Int
+        
+        static let empty = CharityData(name: "", profitDescription: CharityDataDescription(description: "", resultText: ""), failureDescription: CharityDataDescription(description: "", resultText: ""), profitPercentage: 0)
     }
 }
 

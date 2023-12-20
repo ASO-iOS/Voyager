@@ -84,13 +84,12 @@ struct Stage5Game3View: View {
                 }
             case .text18:
                 stageView {
-//                    stage5Game3ViewModel.nextText(.game)
-                    stage5ViewModel.setState(.game4)
+                    stage5Game3ViewModel.nextText(.game)
                 }
             case .game:
-                stageView {
-                    
-                }
+                CharityView(completion: {
+                    stage5ViewModel.setState(.game4)
+                })
             }
         }
         .onAppear {

@@ -12,13 +12,15 @@ final class Stage2Game2ViewModel: ObservableObject {
     
     
     enum Stage2GameState {
-        case text0, text1, text2, text3, text4, text5, game
+        case text0, text1, text2, text3, text4, text5, game, textSide0, textSide1, textSideNegative, textSideNeutral, textSidePositive0, textSidePositive1
     }
     
     func nextText(_ state: Stage2GameState) {
         if index < Stage2DiceReference.shared.phrases.count - 1 {
             self.state = state
-            index += 1
+            if state != .game {
+                index += 1
+            }
             textOutput = ""
             phraseSource = Stage2DiceReference.shared.phrases[index]
         } else {

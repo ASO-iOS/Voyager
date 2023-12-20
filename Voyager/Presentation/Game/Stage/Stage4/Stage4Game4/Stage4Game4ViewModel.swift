@@ -23,7 +23,9 @@ final class Stage4Game4ViewModel: ObservableObject {
     func nextText(_ state: Stage4GameState) {
         if index < Stage4BettingWColleaguesReference.shared.phrases.count - 1 {
             self.state = state
-            index += 1
+            if state != .game {
+                index += 1
+            }
             textOutput = ""
             phraseSource = Stage4BettingWColleaguesReference.shared.phrases[index]
         } else {

@@ -112,7 +112,7 @@ final class InvestmentViewModel: ObservableObject {
         self.winChance = winChance
     }
     
-    func showFinishScreen() {
+    @MainActor func showFinishScreen() {
         Task {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             withAnimation {
@@ -137,21 +137,21 @@ final class InvestmentViewModel: ObservableObject {
         maxY = chartData.max()! + 20
     }
     
-    func win() {
+    @MainActor func win() {
         moveUp()
         chartColor = .green
         gameResult = .win
         showFinishScreen()
     }
     
-    func lose() {
+    @MainActor func lose() {
         moveDown()
         chartColor = .red
         gameResult = .lose
         showFinishScreen()
     }
     
-    private func animateChart(delay: Float = 0.05) async {
+    @MainActor private func animateChart(delay: Float = 0.05) async {
         let stages: [Int] = Array(Array(2..<steps - 2).shuffled().prefix(7))
         buttonDisabled = true
         entryPoint = chartData.last!
@@ -171,11 +171,13 @@ final class InvestmentViewModel: ObservableObject {
         }
     }
     
-    func play() async {
+    @MainActor func play() async {
         await animateChart()
         withAnimation {
             Double.random(in: 0...1) < winChance + karmaBonus ? win() : lose()
-            BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
+
         }
+        BalanceManager.shared.changeBalance(by: bet, gameResult: gameResult == .win ? .win : .lose)
+
     }
 }

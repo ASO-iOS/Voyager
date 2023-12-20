@@ -37,6 +37,58 @@ struct Stage2Game2View: View {
                 DiceView() {
                     stage2ViewModel.setState(.game3)
                 }
+            case .textSide0:
+                stageView {
+                    stage2Game2ViewModel.nextText(.textSide1)
+                }
+            case .textSide1:
+                stageViewWithAnswers {
+                    stage2Game2ViewModel.index = 8
+                    stage2Game2ViewModel.nextText(.textSideNeutral)
+                } positiveAction: {
+                    stage2Game2ViewModel.index = 9
+                    StorageManager.shared.increaseKarma(5)
+                    stage2Game2ViewModel.nextText(.textSidePositive0)
+                } negativeAction: {
+                    BalanceManager.shared.changeBalance(
+                        by: BalanceManager.shared.gameCash,
+                        gameResult: .lose)
+                    BalanceManager.shared.changeBalance(
+                        by: 500,
+                        gameResult: .win)
+                    StorageManager.shared.reduceKarma(5)
+                    stage2Game2ViewModel.nextText(.textSideNegative)
+                }
+                
+            case .textSideNegative:
+                VStack {
+                    Text("Только мелочь оставили, паскуды...")
+                        .gameButtonStyle(.textBack)
+                        .padding(.top, 100)
+                    stageView {
+                        stage2ViewModel.setState(.game3)
+                    }
+                }
+            case .textSideNeutral:
+                stageView {
+                    stage2ViewModel.setState(.game3)
+                }
+            case .textSidePositive0:
+                stageView {
+                    BalanceManager.shared.changeBalance(
+                        by: 100,
+                        gameResult: .win)
+                    stage2Game2ViewModel.nextText(.textSidePositive1)
+                }
+            case .textSidePositive1:
+                VStack {
+                    Text("+100")
+                        .gameButtonStyle(.textBack)
+                        .padding(.top, 100)
+                    stageView {
+                        stage2ViewModel.setState(.game3)
+                    }
+                }
             }
             
             
@@ -70,6 +122,54 @@ struct Stage2Game2View: View {
             })
             .disabled(stage2Game2ViewModel.printingFinished)
             .padding(.bottom)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
+        .onAppear {
+                stage2Game2ViewModel.printingFinished.toggle()
+                Task {
+                    try await writeTextBySymbols()
+                }
+                
+            }
+    }
+    
+    @ViewBuilder private func stageViewWithAnswers(neutralAction: @escaping () -> Void = {}, positiveAction: @escaping () -> Void, negativeAction: @escaping () -> Void) -> some View {
+        VStack {
+            Text(stage2Game2ViewModel.textOutput)
+                .gameTextStyle(.textBack)
+                .padding(.bottom, 2)
+            
+            Button(action: {
+                positiveAction()
+            }, label: {
+                Text(stage2Game2ViewModel.phraseSource.answerPositive ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage2Game2ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage2Game2ViewModel.printingFinished)
+            .padding(.bottom, 2)
+            
+            Button(action: {
+                negativeAction()
+            }, label: {
+                Text(stage2Game2ViewModel.phraseSource.answerNegative ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage2Game2ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage2Game2ViewModel.printingFinished)
+            .padding(.bottom)
+            
+            if let answerNeutral = stage2Game2ViewModel.phraseSource.answerNeutral {
+                Button(action: {
+                    neutralAction()
+                }, label: {
+                    Text(answerNeutral)
+                        .gameButtonStyle(.nextButton)
+                        .opacity(stage2Game2ViewModel.printingFinished ? 0.3 : 1.0)
+                })
+                .disabled(stage2Game2ViewModel.printingFinished)
+                .padding(.bottom)
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
         .onAppear {

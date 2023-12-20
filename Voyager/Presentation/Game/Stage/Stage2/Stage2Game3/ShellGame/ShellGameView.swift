@@ -82,18 +82,35 @@ struct ShellGameView: View {
                             .gameButtonStyle(.textBack)
                         
                         VStack {
-                            ForEach([100, 250, 500], id: \.self) { amount in
+                            if StorageManager.shared.isFirstTimePlaying {
+                                Text("100")
+                                    .gameButtonStyle( .nextButton)
+                                    .opacity(0)
+                                Text("100")
+                                    .gameButtonStyle( .nextButton)
+                                    .opacity(0)
                                 Button(action: {
-                                    
-                                    viewModel.bet = amount
+                                    viewModel.bet = 100
                                     play()
                                 }, label: {
-                                    Text(amount.description)
+                                    Text("100")
                                         .gameButtonStyle( .nextButton)
                                 })
+                            } else {
+                                ForEach([100, 250, 500], id: \.self) { amount in
+                                    Button(action: {
+                                        
+                                        viewModel.bet = amount
+                                        play()
+                                    }, label: {
+                                        Text(amount.description)
+                                            .gameButtonStyle( .nextButton)
+                                    })
+                                }
                             }
                         }
                         .padding(.bottom, 6)
+                            
                     }
                     .disabled(shuffleInProgress || viewModel.readyToReveal)
                     .opacity(shuffleInProgress || viewModel.readyToReveal ? 0 : 1)
@@ -110,11 +127,13 @@ struct ShellGameView: View {
                                 viewModel.setUpCups(reveal: $reveal)
                                 viewModel.isFinish = false
                                 viewModel.readyToReveal = false
+                                StorageManager.shared.firstGamePlayed()
                             }, label: {
                                 Text("Да")
                                     .gameButtonStyle( .nextButton)
                             })
                             Button(action: {
+                                StorageManager.shared.firstGamePlayed()
                                 completion()
                             }, label: {
                                 Text("Нет")

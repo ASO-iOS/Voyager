@@ -42,6 +42,48 @@ struct Stage3Game1View: View {
                 MexicoHippodromView() {
                     stage3ViewModel.setState(.game2)
                 } .environmentObject(MexicoHippodromViewModel())
+            case .textSide0:
+                stageView {
+                    stage3Game1ViewModel.nextText(.textSide1)
+                }
+            case .textSide1:
+                stageView {
+                    stage3Game1ViewModel.nextText(.textSide2)
+                }
+            case .textSide2:
+                stageView {
+                    stage3Game1ViewModel.nextText(.textSide3)
+                }
+            case .textSide3:
+                stageViewWithAnswers {
+                    stage3Game1ViewModel.index = 10
+                    stage3Game1ViewModel.nextText(.textSideNeutral)
+                } positiveAction: {
+                    BalanceManager.shared.changeBalance(by: 500, gameResult: .win)
+                    stage3Game1ViewModel.index = 10
+                    stage3Game1ViewModel.nextText(.textSidePositive)
+                } negativeAction: {
+                    BalanceManager.shared.changeBalance(
+                        by: BalanceManager.shared.gameCash,
+                        gameResult: .lose)
+                    BalanceManager.shared.changeBalance(by: 500, gameResult: .win)
+                    stage3Game1ViewModel.nextText(.textSideNegative)
+                }
+
+            case .textSideNegative:
+                stageView {
+                    stage3ViewModel.setState(.game2)
+                }
+            case .textSideNeutral:
+                stageView {
+                    stage3ViewModel.setState(.game2)
+                }
+            case .textSidePositive:
+                Text("+500")
+                    .gameButtonStyle(.textBack)
+                stageView {
+                    stage3ViewModel.setState(.game2)
+                }
             }
             
         }
@@ -75,6 +117,54 @@ struct Stage3Game1View: View {
             })
             .disabled(stage3Game1ViewModel.printingFinished)
             .padding(.bottom)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
+        .onAppear {
+                stage3Game1ViewModel.printingFinished.toggle()
+                Task {
+                    try await writeTextBySymbols()
+                }
+                
+            }
+    }
+    
+    @ViewBuilder private func stageViewWithAnswers(neutralAction: @escaping () -> Void = {}, positiveAction: @escaping () -> Void, negativeAction: @escaping () -> Void) -> some View {
+        VStack {
+            Text(stage3Game1ViewModel.textOutput)
+                .gameTextStyle(.textBack)
+                .padding(.bottom, 2)
+            
+            Button(action: {
+                positiveAction()
+            }, label: {
+                Text(stage3Game1ViewModel.phraseSource.answerPositive ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage3Game1ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage3Game1ViewModel.printingFinished)
+            .padding(.bottom, 2)
+            
+            Button(action: {
+                negativeAction()
+            }, label: {
+                Text(stage3Game1ViewModel.phraseSource.answerNegative ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage3Game1ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage3Game1ViewModel.printingFinished)
+            .padding(.bottom)
+            
+            if let answerNeutral = stage3Game1ViewModel.phraseSource.answerNeutral {
+                Button(action: {
+                    neutralAction()
+                }, label: {
+                    Text(answerNeutral)
+                        .gameButtonStyle(.nextButton)
+                        .opacity(stage3Game1ViewModel.printingFinished ? 0.3 : 1.0)
+                })
+                .disabled(stage3Game1ViewModel.printingFinished)
+                .padding(.bottom)
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
         .onAppear {

@@ -4,7 +4,6 @@ struct Stage1Game4View: View {
     
     @EnvironmentObject var stage1ViewModel: Stage1ViewModel
     @StateObject var stage1Game4ViewModel = Stage1Game4ViewModel()
-//    @EnvironmentObject var appController: ApplicationController
     
     var body: some View {
         ZStack {
@@ -37,9 +36,6 @@ struct Stage1Game4View: View {
                 BetWithStrangerView(winChance: 0.5) {
                     stage1ViewModel.setState(.freePlay)
                 }
-//                stageView {
-
-//                }
             }
         }
         .onAppear {
@@ -92,5 +88,4 @@ struct Stage1Game4View: View {
         }
         stage1Game4ViewModel.printingFinished.toggle()
     }
-    
 }

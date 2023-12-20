@@ -17,7 +17,7 @@ struct PhraseData {
 }
 
 enum PhraseType: String {
-    case common, mc, casinoPartner, sportsman, grandma, bartender, exSectarian, exFellowStudent, investMan, hippodromeMan, cryptoMan, thimblesMan, interlocutor, students
+    case common, mc, casinoPartner, sportsman, grandma, bartender, exSectarian, exFellowStudent, investMan, hippodromeMan, cryptoMan, thimblesMan, interlocutor, students, wealthyWoman, homelessMan
     
     var imageName: String {
         switch self {
@@ -49,6 +49,11 @@ enum PhraseType: String {
             return "interlocutor"
         case .students:
             return "students"
+        case .wealthyWoman:
+            return "wealthyWoman"
+        case .homelessMan:
+            return "homelessMan"
         }
     }
 }
+

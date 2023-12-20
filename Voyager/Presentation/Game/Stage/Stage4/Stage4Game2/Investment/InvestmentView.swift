@@ -82,7 +82,6 @@ struct InvestmentView: View {
                     } else {
                         Text(getLabel())
                             .gameButtonStyle(.textBack)
-//                        Spacer()
                         Text("Инвестировать еще?")
                             .gameButtonStyle(.textBack)
                         
@@ -107,11 +106,5 @@ struct InvestmentView: View {
             }
             .frame(maxWidth: .infinity)
             .miniGameBackground()
-//        }
     }
 }
-
-
-//#Preview {
-//    InvestmentView()
-//}

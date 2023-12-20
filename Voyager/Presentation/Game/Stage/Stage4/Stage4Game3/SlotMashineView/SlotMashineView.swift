@@ -4,7 +4,7 @@
 //
 //  Created by admin on 11/21/23.
 //
-//MARK: - UPD
+
 import SwiftUI
 
 struct SlotMashineView: View {
@@ -49,14 +49,6 @@ struct SlotMashineView: View {
             ForEach(depositArray, id: \.self) { deposit in
                 chooseDepositeSizeButton(deposit)
             }
-        
-//            chooseDepositeSizeButton(1000)
-//            
-//            chooseDepositeSizeButton(2500)
-//            
-//            chooseDepositeSizeButton(4000)
-//
-//            chooseDepositeSizeButton(5000)
                 
         }
         .padding(.bottom, 32)
@@ -114,20 +106,6 @@ struct SlotMashineView: View {
             Text("\(slotMashineViewModel.depositeSize)")
                 .gameButtonStyle(slotMashineViewModel.depositeBackColor)
                 .padding(.bottom, 32)
-//            Spacer()
-            
-//            HStack {
-//                Button(action: {
-//                    slotMashineViewModel.setResult()
-//                }, label: {
-//                    Text("X")
-//                        .padding(.leading, 22)
-//                    
-//                    Spacer()
-//                })
-//            }
-            
-//            Spacer()
             
             VStack {
                 imageSpinRowView(0, 1, 2)
@@ -137,9 +115,6 @@ struct SlotMashineView: View {
                 
             }
             .padding(.bottom, 40)
-                        
-            
-//            Spacer()
             
             Button(action: {
                 slotMashineViewModel.startSlotAnimation()
@@ -150,7 +125,14 @@ struct SlotMashineView: View {
             .disabled(slotMashineViewModel.isPlaying)
             .opacity(slotMashineViewModel.isPlaying ? 0.3 : 1.0)
             
-//            Spacer()
+            Button(action: {
+                BalanceManager.shared.changeBalance(by: slotMashineViewModel.depositeSize, gameResult: .win)
+                slotMashineViewModel.setResult()
+            }, label: {
+                Text("Хватит!")
+                    .gameButtonStyle(.nextButton)
+            })
+            
             
         }
         .padding(.bottom)
@@ -192,7 +174,3 @@ struct SlotMashineView: View {
         .miniGameBackground()
     }
 }
-
-//#Preview {
-//    SlotMashineView().environmentObject(SlotMashineViewModel())
-//}

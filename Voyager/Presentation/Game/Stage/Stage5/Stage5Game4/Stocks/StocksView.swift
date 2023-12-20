@@ -1,21 +1,22 @@
 //
-//  CryptoView.swift
-//  MinigamesMZ
+//  StocksView.swift
+//  Voyager
 //
-//  Created by mnats on 23.11.2023.
+//  Created by admin on 19.12.2023.
 //
 
 import SwiftUI
 
-struct CryptoView: View {
-    @ObservedObject var viewModel = CryptoViewModel(numberOfCharts: 3)
+struct StocksView: View {
+    @ObservedObject var viewModel: InvestmentViewModel
     @State var runningView: RunningLineView
+    
     
     var completion: () -> Void = {}
     
-    init(numberOfCharts: Int = 3, completion: @escaping () -> Void = {}) {
-        self.viewModel = CryptoViewModel(numberOfCharts: numberOfCharts)
-        let array = ["BitBuck", "CoinCon", "EtherYm", "RipRap", "LiteLot", "DashDsh", "DogeDbl", "Linky", "MoneroM", "StelarS", "Cardano", "PolkaDz", "TethrTl", "BinBuck", "Uniswop", "VeChnVt", "TronTrk", "Cosmos", "TezosT", "NeoNug"]
+    init(completion: @escaping () -> Void = {}) {
+        self.viewModel = InvestmentViewModel()
+        let array = ["Gazik", "Sberz", "Lukol", "Yandx", "Rosny", "Aerok", "Rostl", "VKut", "Magny", "Kaspk", "Belug", "AlfaZ", "X5ail", "Mobil", "Trans", "Noril", "Vebro", "Tatnf", "Evraz", "Sevrl"]
         self.runningView = RunningLineView(items: array)
         self.completion = completion
     }
@@ -31,35 +32,30 @@ struct CryptoView: View {
     }
     
     var body: some View {
-//        ZStack {
             VStack {
                 Spacer()
-                runningView.frame(height: 100)
-                HStack {
-                    ZStack {
-                        ForEach(0..<viewModel.numberOfCharts, id: \.self) { index in
-                            LineChartView(data: viewModel.chartDatas[index],
+                
+                runningView
+                    .frame(height: 100)
+                
+                SmartPhoneView(size: 190) {
+                        HStack {
+                            LineChartView(data: viewModel.chartData,
                                           minY: viewModel.minY,
                                           maxY: viewModel.maxY,
-                                          color: $viewModel.chartColors[index])
+                                          color: $viewModel.chartColor)
+                            .frame(width: 270, height: 170)
+                            .background(
+                                Rectangle().foregroundStyle(viewModel.chartColor.opacity(0.4))
+                            )
+                            .clipShape(Rectangle())
+                            .rotationEffect(.degrees(90))
                         }
-                    }
-                    .frame(height: 200)
-                    .foregroundStyle(.red)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10).foregroundStyle(viewModel.chartColors[0].opacity(0.2))
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .gameButtonStyle(Color(white: 0.8))
                 }
-                .padding()
+                .rotationEffect(.degrees(-90))
                 
-                Image("keyboard")
-                    .resizable()
-                    .scaledToFit()
                 
                 VStack {
-//                    Spacer()
                     if !viewModel.isFinishPresented {
                         Text("Инвестировать")
                             .gameButtonStyle(.textBack)
@@ -83,13 +79,13 @@ struct CryptoView: View {
                     } else {
                         Text(getLabel())
                             .gameButtonStyle(.textBack)
-//                        Spacer()
                         Text("Инвестировать еще?")
                             .gameButtonStyle(.textBack)
                         
                         VStack {
                             Button(action: {
-                                viewModel.restart()
+                                viewModel.isFinishPresented = false
+                                viewModel.buttonDisabled = false
                             }, label: {
                                 Text("Да")
                                     .gameButtonStyle( .nextButton)
@@ -107,12 +103,5 @@ struct CryptoView: View {
             }
             .frame(maxWidth: .infinity)
             .miniGameBackground()
-            
-//        }
     }
 }
-
-//
-//#Preview {
-//    CryptoView()
-//}

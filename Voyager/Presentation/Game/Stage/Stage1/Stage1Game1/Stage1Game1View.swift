@@ -54,7 +54,69 @@ struct Stage1Game1View: View {
                 ShellGameView(completion: {
                     stage1ViewModel.setState(.game2)
                 })
-                .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.3))
+                .environmentObject(ShellGameViewModel(cupsCount: 3, winChance: 0.7))
+            case .textSide0:
+                stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                    stage1Game1ViewModel.nextText(.textSide1)
+                }
+            case .textSide1:
+                    stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                        stage1Game1ViewModel.nextText(.textSide2)
+                    }
+            case .textSide2:
+                stageViewWithAnswers(src: stage1Game1ViewModel.phraseSource.text) {
+                    stage1Game1ViewModel.index = 11
+                    stage1Game1ViewModel.nextText(.textSideNeutral)
+                } positiveAction: {
+                    StorageManager.shared.increaseKarma(5)
+                    stage1Game1ViewModel.index = 12
+                    stage1Game1ViewModel.nextText(.textSidePositive0)
+                } negativeAction: {
+                    BalanceManager.shared.changeBalance(by: 200, gameResult: .win)
+                    StorageManager.shared.reduceKarma(5)
+                    stage1Game1ViewModel.nextText(.textSideNegative)
+                }
+
+
+            case .textSideNegative:
+                VStack {
+                    Text("+200")
+                        .gameButtonStyle(.textBack)
+                        .padding(.top, 100)
+                    stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                        stage1ViewModel.setState(.game2)
+                    }
+                }
+            case .textSideNeutral:
+                stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                    stage1ViewModel.setState(.game2)
+                }
+            case .textSidePositive0:
+                stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                    stage1Game1ViewModel.nextText(.textSidePositive1)
+                }
+            case .textSidePositive1:
+                stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                    stage1Game1ViewModel.nextText(.textSidePositive2)
+                }
+            case .textSidePositive2:
+                stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                    stage1Game1ViewModel.nextText(.textSidePositive3)
+                }
+            case .textSidePositive3:
+                stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                    BalanceManager.shared.changeBalance(by: 100, gameResult: .win)
+                    stage1Game1ViewModel.nextText(.textSidePositive4)
+                }
+            case .textSidePositive4:
+                VStack {
+                    Text("+100")
+                        .gameButtonStyle(.textBack)
+                        .padding(.top, 100)
+                    stageView(src: stage1Game1ViewModel.phraseSource.text) {
+                        stage1ViewModel.setState(.game2)
+                    }
+                }
             }
             
         }
@@ -123,6 +185,54 @@ struct Stage1Game1View: View {
             })
             .disabled(stage1Game1ViewModel.printingFinished)
             .padding(.bottom)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
+        .onAppear {
+                stage1Game1ViewModel.printingFinished.toggle()
+                Task {
+                    try await writeTextBySymbols(src)
+                }
+                
+            }
+    }
+    
+    @ViewBuilder private func stageViewWithAnswers(src: String, neutralAction: @escaping () -> Void = {}, positiveAction: @escaping () -> Void, negativeAction: @escaping () -> Void) -> some View {
+        VStack {
+            Text(stage1Game1ViewModel.textOutput)
+                .gameTextStyle(.textBack)
+                .padding(.bottom, 2)
+            
+            Button(action: {
+                positiveAction()
+            }, label: {
+                Text(stage1Game1ViewModel.phraseSource.answerPositive ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage1Game1ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage1Game1ViewModel.printingFinished)
+            .padding(.bottom, 2)
+            
+            Button(action: {
+                negativeAction()
+            }, label: {
+                Text(stage1Game1ViewModel.phraseSource.answerNegative ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage1Game1ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage1Game1ViewModel.printingFinished)
+            .padding(.bottom)
+            
+            if let answerNeutral = stage1Game1ViewModel.phraseSource.answerNeutral {
+                Button(action: {
+                    neutralAction()
+                }, label: {
+                    Text(answerNeutral)
+                        .gameButtonStyle(.nextButton)
+                        .opacity(stage1Game1ViewModel.printingFinished ? 0.3 : 1.0)
+                })
+                .disabled(stage1Game1ViewModel.printingFinished)
+                .padding(.bottom)
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
         .onAppear {

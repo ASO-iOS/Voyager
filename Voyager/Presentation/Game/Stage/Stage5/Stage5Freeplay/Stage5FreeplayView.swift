@@ -55,20 +55,19 @@ struct Stage5FreePlayView: View {
                 .padding(.bottom)
                 
             case .game1:
-                LoteryView(price: 1000) {
+                OptionView() {
                     stage5FreeplayViewModel.state = .main
                 }
-                .environmentObject(LoteryViewModel())
             case .game2:
                 CryptoView() {
                     stage5FreeplayViewModel.state = .main
                 }
             case .game3:
-                SlotMashineView(depositArray: [100, 250, 500, 1000], betAmount: 25, completion: {
+                CharityView(completion: {
                     stage5FreeplayViewModel.state = .main
                 })
             case .game4:
-                ClickerView() {
+                StocksView() {
                     stage5FreeplayViewModel.state = .main
                 }
             }

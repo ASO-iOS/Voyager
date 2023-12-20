@@ -99,8 +99,8 @@ struct Stage5Game4View: View {
                     stage5Game4ViewModel.nextText(.game)
                 }
             case .game:
-                stageView {
-                    
+                StocksView() {
+                    stage5ViewModel.setState(.freePlay)
                 }
             }
         }

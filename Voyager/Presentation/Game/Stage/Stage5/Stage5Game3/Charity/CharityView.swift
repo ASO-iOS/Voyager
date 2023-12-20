@@ -8,7 +8,24 @@
 import SwiftUI
 
 struct CharityView: View {
+    @StateObject var charityViewModel = CharityViewModel()
+    var completion: () -> Void
+    
     var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+        ZStack {
+            switch charityViewModel.state {
+            case .selectShesterka:
+                CharitySelectShesterkaView()
+            case .selectAmount:
+                CharitySelectAmountView()
+            case .loading:
+                CharityLoadingView()
+            case .result:
+                CharityResultView {
+                    completion()
+                }
+            }
+        }
+        .environmentObject(charityViewModel)
     }
 }

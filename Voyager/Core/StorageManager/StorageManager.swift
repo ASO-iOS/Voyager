@@ -11,6 +11,12 @@ final class StorageManager {
     static let shared = StorageManager()
     private init() {}
     
+    @AppStorage(SMKeys.IS_FIRST_TIME_PLAYING) private(set) var isFirstTimePlaying = true
+    
+    func firstGamePlayed() {
+        isFirstTimePlaying = false
+    }
+    
     //MARK: - onboarding
     
     @AppStorage(SMKeys.ONBOARDING_PRESENTED) private(set) var onboardingPresented = false

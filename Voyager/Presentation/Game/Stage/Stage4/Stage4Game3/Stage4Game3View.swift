@@ -50,6 +50,47 @@ struct Stage4Game3View: View {
                 SlotMashineView(depositArray: [100, 250, 500, 1000], betAmount: 25, completion: {
                     stage4ViewModel.setState(.game4)
                 })
+            case .textSide0:
+                stageView {
+                    stage4Game3ViewModel.nextText(.textSide1)
+                }
+            case .textSide1:
+                stageViewWithAnswers {
+                    stage4Game3ViewModel.index = 12
+                    stage4Game3ViewModel.nextText(.textSideNeutral)
+                } positiveAction: {
+                    stage4Game3ViewModel.index = 13
+                    stage4Game3ViewModel.nextText(.textSidePositive0)
+                } negativeAction: {
+                    stage4Game3ViewModel.nextText(.textSideNegative0)
+                }
+
+            case .textSideNegative0:
+                stageView {
+                    BalanceManager.shared.changeBalance(
+                        by: BalanceManager.shared.gameCash / 2,
+                        gameResult: .lose)
+                    stage4Game3ViewModel.nextText(.textSideNegative1)
+                }
+            case .textSideNegative1:
+                stageView {
+                    stage4ViewModel.setState(.game4)
+                }
+            case .textSideNeutral:
+                stageView {
+                    stage4ViewModel.setState(.game4)
+                }
+            case .textSidePositive0:
+                stageView {
+                    BalanceManager.shared.changeBalance(
+                        by: 2000,
+                        gameResult: .win)
+                    stage4Game3ViewModel.nextText(.textSidePositive1)
+                }
+            case .textSidePositive1:
+                stageView {
+                    stage4ViewModel.setState(.game4)
+                }
             }
             
         }
@@ -83,6 +124,54 @@ struct Stage4Game3View: View {
             })
             .disabled(stage4Game3ViewModel.printingFinished)
             .padding(.bottom)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
+        .onAppear {
+                stage4Game3ViewModel.printingFinished.toggle()
+                Task {
+                    try await writeTextBySymbols()
+                }
+                
+            }
+    }
+    
+    @ViewBuilder private func stageViewWithAnswers(neutralAction: @escaping () -> Void = {}, positiveAction: @escaping () -> Void, negativeAction: @escaping () -> Void) -> some View {
+        VStack {
+            Text(stage4Game3ViewModel.textOutput)
+                .gameTextStyle(.textBack)
+                .padding(.bottom, 2)
+            
+            Button(action: {
+                positiveAction()
+            }, label: {
+                Text(stage4Game3ViewModel.phraseSource.answerPositive ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage4Game3ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage4Game3ViewModel.printingFinished)
+            .padding(.bottom, 2)
+            
+            Button(action: {
+                negativeAction()
+            }, label: {
+                Text(stage4Game3ViewModel.phraseSource.answerNegative ?? "")
+                    .gameButtonStyle(.nextButton)
+                    .opacity(stage4Game3ViewModel.printingFinished ? 0.3 : 1.0)
+            })
+            .disabled(stage4Game3ViewModel.printingFinished)
+            .padding(.bottom)
+            
+            if let answerNeutral = stage4Game3ViewModel.phraseSource.answerNeutral {
+                Button(action: {
+                    neutralAction()
+                }, label: {
+                    Text(answerNeutral)
+                        .gameButtonStyle(.nextButton)
+                        .opacity(stage4Game3ViewModel.printingFinished ? 0.3 : 1.0)
+                })
+                .disabled(stage4Game3ViewModel.printingFinished)
+                .padding(.bottom)
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottom)
         .onAppear {

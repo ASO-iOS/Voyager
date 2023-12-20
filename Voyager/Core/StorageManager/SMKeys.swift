@@ -33,4 +33,6 @@ struct SMKeys {
     static let GAME_TEXT_SPEED = "gameTextSpeed"
     
     static let IS_NEW_GAME = "isNewGame"
+    
+    static let IS_FIRST_TIME_PLAYING = "isFirstTimePlaying"
 }
